@@ -1,0 +1,871 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C922E6D72163AD6400BAC50D /* Wallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C922E6D52163AD6400BAC50D /* Wallet.xcdatamodeld */; };
+		C92C4C692178CB6F00DDD27E /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92C4C682178CB6F00DDD27E /* PostRegistrationViewController.swift */; };
+		C940102A215C072500287717 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9401029215C072500287717 /* AppDelegate.swift */; };
+		C940102C215C072500287717 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C940102B215C072500287717 /* ViewController.swift */; };
+		C940102F215C072500287717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C940102D215C072500287717 /* Main.storyboard */; };
+		C9401031215C072600287717 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9401030215C072600287717 /* Assets.xcassets */; };
+		C9401034215C072600287717 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9401032215C072600287717 /* LaunchScreen.storyboard */; };
+		C94010C8215D618800287717 /* GenerateWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94010C7215D618800287717 /* GenerateWalletViewController.swift */; };
+		C94010CA215D619C00287717 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94010C9215D619C00287717 /* ImportWalletViewController.swift */; };
+		C94010CC215E9E0400287717 /* SIMBA-S.png in Resources */ = {isa = PBXBuildFile; fileRef = C94010CB215E9E0400287717 /* SIMBA-S.png */; };
+		C94010CE215E9E5200287717 /* Simba-NS.png in Resources */ = {isa = PBXBuildFile; fileRef = C94010CD215E9E5100287717 /* Simba-NS.png */; };
+		C9DD804B21654A2600E7111C /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94010A0215D0C0000287717 /* EthereumKit.framework */; };
+		C9DD804C21654A2600E7111C /* EthereumKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C94010A0215D0C0000287717 /* EthereumKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9DD805221654AE700E7111C /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94010BE215D0D2D00287717 /* CryptoSwift.framework */; };
+		C9DD805321654AE700E7111C /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C94010BE215D0D2D00287717 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9DD805621654B0100E7111C /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */; };
+		C9DD805721654B0100E7111C /* CryptoEthereumSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9F86EB72167B16F003826F8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EB62167B16F003826F8 /* InfoViewController.swift */; };
+		C9F86EB92167DE17003826F8 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F86EB82167DE16003826F8 /* placeholder.png */; };
+		C9F86EDD2167FFB5003826F8 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED42167FFB5003826F8 /* APIHelper.swift */; };
+		C9F86EDE2167FFB5003826F8 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED52167FFB5003826F8 /* AlamofireImplementations.swift */; };
+		C9F86EDF2167FFB5003826F8 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED72167FFB5003826F8 /* DefaultAPI.swift */; };
+		C9F86EE02167FFB5003826F8 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED82167FFB5003826F8 /* APIs.swift */; };
+		C9F86EE12167FFB5003826F8 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDA2167FFB5003826F8 /* Dwarf.swift */; };
+		C9F86EE22167FFB5003826F8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDB2167FFB5003826F8 /* Extensions.swift */; };
+		C9F86EE32167FFB5003826F8 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDC2167FFB5003826F8 /* Models.swift */; };
+		C9F86EE4216800AD003826F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F86EC62167FFA3003826F8 /* Alamofire.framework */; };
+		C9F86EE5216800AD003826F8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F86EC62167FFA3003826F8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9F86EEA216D38B3003826F8 /* GetRegModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EE9216D38B3003826F8 /* GetRegModel.swift */; };
+		C9F86EEC216E5848003826F8 /* RegTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EEB216E5848003826F8 /* RegTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C940109F215D0C0000287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEBA90D51FFA21ED003EA2BA;
+			remoteInfo = EthereumKit;
+		};
+		C94010A1215D0C0000287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEBA90F01FFA2C6A003EA2BA;
+			remoteInfo = Example;
+		};
+		C94010A3215D0C0000287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE90A0751FFA698D005ED7AF;
+			remoteInfo = EthereumKitTests;
+		};
+		C94010AB215D0C0600287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1AD1D61B20B7E822007AFF80;
+			remoteInfo = CryptoEthereumSwift;
+		};
+		C94010AD215D0C0600287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1AD1D62420B7E822007AFF80;
+			remoteInfo = CryptoEthereumSwiftTests;
+		};
+		C94010AF215D0C0600287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1AD1D63E20B7EF2F007AFF80;
+			remoteInfo = Example;
+		};
+		C94010BD215D0D2D00287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		C94010BF215D0D2D00287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75211F92207249D8004E41F8;
+			remoteInfo = "CryptoSwift-TestHostApp";
+		};
+		C94010C1215D0D2D00287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		C94010C3215D0D2D00287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
+			remoteInfo = "TestsPerformance-Mac";
+		};
+		C94010C5215D0D2D00287717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
+			remoteInfo = "TestsPerformance-iOS";
+		};
+		C9DD804D21654A2600E7111C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AEBA90D41FFA21ED003EA2BA;
+			remoteInfo = EthereumKit;
+		};
+		C9DD805421654AE700E7111C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		C9DD805821654B0100E7111C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AD1D61A20B7E822007AFF80;
+			remoteInfo = CryptoEthereumSwift;
+		};
+		C9F86EC52167FFA3003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		C9F86EC72167FFA3003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		C9F86EC92167FFA3003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire macOS";
+		};
+		C9F86ECB2167FFA3003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire macOS Tests";
+		};
+		C9F86ECD2167FFA3003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS";
+		};
+		C9F86ECF2167FFA3003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
+			remoteInfo = "Alamofire tvOS Tests";
+		};
+		C9F86ED12167FFA3003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
+		C9F86EE6216800AD003826F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9DD804F21654A2600E7111C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C9DD805721654B0100E7111C /* CryptoEthereumSwift.framework in Embed Frameworks */,
+				C9DD804C21654A2600E7111C /* EthereumKit.framework in Embed Frameworks */,
+				C9DD805321654AE700E7111C /* CryptoSwift.framework in Embed Frameworks */,
+				C9F86EE5216800AD003826F8 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C922E6D62163AD6400BAC50D /* Wallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallet.xcdatamodel; sourceTree = "<group>"; };
+		C92C4C682178CB6F00DDD27E /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
+		C9401026215C072500287717 /* SIMBA_CarDemo_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIMBA_CarDemo_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9401029215C072500287717 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C940102B215C072500287717 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C940102E215C072500287717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C9401030215C072600287717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9401033215C072600287717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C9401035215C072600287717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9401099215D0C0000287717 /* EthereumKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EthereumKit.xcodeproj; path = "EthereumKit-master/EthereumKit.xcodeproj"; sourceTree = "<group>"; };
+		C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoEthereumSwift.xcodeproj; path = "CryptoEthereumSwift-master/CryptoEthereumSwift.xcodeproj"; sourceTree = "<group>"; };
+		C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "krzyzanowskim-CryptoSwift-2bcb008/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
+		C94010C7215D618800287717 /* GenerateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateWalletViewController.swift; sourceTree = "<group>"; };
+		C94010C9215D619C00287717 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
+		C94010CB215E9E0400287717 /* SIMBA-S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SIMBA-S.png"; sourceTree = SOURCE_ROOT; };
+		C94010CD215E9E5100287717 /* Simba-NS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simba-NS.png"; sourceTree = SOURCE_ROOT; };
+		C9F86EB62167B16F003826F8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		C9F86EB82167DE16003826F8 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = SOURCE_ROOT; };
+		C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+		C9F86ED42167FFB5003826F8 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		C9F86ED52167FFB5003826F8 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
+		C9F86ED72167FFB5003826F8 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
+		C9F86ED82167FFB5003826F8 /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		C9F86EDA2167FFB5003826F8 /* Dwarf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
+		C9F86EDB2167FFB5003826F8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C9F86EDC2167FFB5003826F8 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C9F86EE9216D38B3003826F8 /* GetRegModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRegModel.swift; sourceTree = "<group>"; };
+		C9F86EEB216E5848003826F8 /* RegTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9401023215C072500287717 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9DD805621654B0100E7111C /* CryptoEthereumSwift.framework in Frameworks */,
+				C9DD804B21654A2600E7111C /* EthereumKit.framework in Frameworks */,
+				C9DD805221654AE700E7111C /* CryptoSwift.framework in Frameworks */,
+				C9F86EE4216800AD003826F8 /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C940101D215C072500287717 = {
+			isa = PBXGroup;
+			children = (
+				C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */,
+				C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */,
+				C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */,
+				C9401099215D0C0000287717 /* EthereumKit.xcodeproj */,
+				C9F86ED32167FFB5003826F8 /* Swaggers */,
+				C9401028215C072500287717 /* SIMBA_CarDemo_iOS */,
+				C9401027215C072500287717 /* Products */,
+				C9401053215C0AEB00287717 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C9401027215C072500287717 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9401026215C072500287717 /* SIMBA_CarDemo_iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9401028215C072500287717 /* SIMBA_CarDemo_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C9F86EB82167DE16003826F8 /* placeholder.png */,
+				C94010CB215E9E0400287717 /* SIMBA-S.png */,
+				C94010CD215E9E5100287717 /* Simba-NS.png */,
+				C9401029215C072500287717 /* AppDelegate.swift */,
+				C922E6D52163AD6400BAC50D /* Wallet.xcdatamodeld */,
+				C940102D215C072500287717 /* Main.storyboard */,
+				C940102B215C072500287717 /* ViewController.swift */,
+				C9F86EB62167B16F003826F8 /* InfoViewController.swift */,
+				C94010C7215D618800287717 /* GenerateWalletViewController.swift */,
+				C94010C9215D619C00287717 /* ImportWalletViewController.swift */,
+				C9F86EEB216E5848003826F8 /* RegTableViewController.swift */,
+				C92C4C682178CB6F00DDD27E /* PostRegistrationViewController.swift */,
+				C9401030215C072600287717 /* Assets.xcassets */,
+				C9401032215C072600287717 /* LaunchScreen.storyboard */,
+				C9401035215C072600287717 /* Info.plist */,
+			);
+			path = SIMBA_CarDemo_iOS;
+			sourceTree = "<group>";
+		};
+		C9401053215C0AEB00287717 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C940109A215D0C0000287717 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C94010A0215D0C0000287717 /* EthereumKit.framework */,
+				C94010A2215D0C0000287717 /* Example.app */,
+				C94010A4215D0C0000287717 /* EthereumKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C94010A6215D0C0500287717 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */,
+				C94010AE215D0C0600287717 /* CryptoEthereumSwiftTests.xctest */,
+				C94010B0215D0C0600287717 /* Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C94010B6215D0D2C00287717 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C94010BE215D0D2D00287717 /* CryptoSwift.framework */,
+				C94010C0215D0D2D00287717 /* CryptoSwift-TestHostApp.app */,
+				C94010C2215D0D2D00287717 /* Tests.xctest */,
+				C94010C4215D0D2D00287717 /* TestsPerformance-Mac.xctest */,
+				C94010C6215D0D2D00287717 /* TestsPerformance-iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9F86EBB2167FFA3003826F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9F86EC62167FFA3003826F8 /* Alamofire.framework */,
+				C9F86EC82167FFA3003826F8 /* Alamofire iOS Tests.xctest */,
+				C9F86ECA2167FFA3003826F8 /* Alamofire.framework */,
+				C9F86ECC2167FFA3003826F8 /* Alamofire macOS Tests.xctest */,
+				C9F86ECE2167FFA3003826F8 /* Alamofire.framework */,
+				C9F86ED02167FFA3003826F8 /* Alamofire tvOS Tests.xctest */,
+				C9F86ED22167FFA3003826F8 /* Alamofire.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9F86ED32167FFB5003826F8 /* Swaggers */ = {
+			isa = PBXGroup;
+			children = (
+				C9F86ED42167FFB5003826F8 /* APIHelper.swift */,
+				C9F86ED52167FFB5003826F8 /* AlamofireImplementations.swift */,
+				C9F86ED62167FFB5003826F8 /* APIs */,
+				C9F86ED82167FFB5003826F8 /* APIs.swift */,
+				C9F86ED92167FFB5003826F8 /* Models */,
+				C9F86EDB2167FFB5003826F8 /* Extensions.swift */,
+				C9F86EDC2167FFB5003826F8 /* Models.swift */,
+			);
+			path = Swaggers;
+			sourceTree = "<group>";
+		};
+		C9F86ED62167FFB5003826F8 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				C9F86ED72167FFB5003826F8 /* DefaultAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		C9F86ED92167FFB5003826F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9F86EDA2167FFB5003826F8 /* Dwarf.swift */,
+				C9F86EE9216D38B3003826F8 /* GetRegModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C9401025215C072500287717 /* SIMBA_CarDemo_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9401038215C072600287717 /* Build configuration list for PBXNativeTarget "SIMBA_CarDemo_iOS" */;
+			buildPhases = (
+				C9401022215C072500287717 /* Sources */,
+				C9401023215C072500287717 /* Frameworks */,
+				C9401024215C072500287717 /* Resources */,
+				C9DD804F21654A2600E7111C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9DD804E21654A2600E7111C /* PBXTargetDependency */,
+				C9DD805521654AE700E7111C /* PBXTargetDependency */,
+				C9DD805921654B0100E7111C /* PBXTargetDependency */,
+				C9F86EE7216800AD003826F8 /* PBXTargetDependency */,
+			);
+			name = SIMBA_CarDemo_iOS;
+			productName = SIMBA_CarDemo_iOS;
+			productReference = C9401026215C072500287717 /* SIMBA_CarDemo_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C940101E215C072500287717 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = ITAMCO;
+				TargetAttributes = {
+					C9401025215C072500287717 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = C9401021215C072500287717 /* Build configuration list for PBXProject "SIMBA_CarDemo_iOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C940101D215C072500287717;
+			productRefGroup = C9401027215C072500287717 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C9F86EBB2167FFA3003826F8 /* Products */;
+					ProjectRef = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+				},
+				{
+					ProductGroup = C94010A6215D0C0500287717 /* Products */;
+					ProjectRef = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = C94010B6215D0D2C00287717 /* Products */;
+					ProjectRef = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+				},
+				{
+					ProductGroup = C940109A215D0C0000287717 /* Products */;
+					ProjectRef = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				C9401025215C072500287717 /* SIMBA_CarDemo_iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C94010A0215D0C0000287717 /* EthereumKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EthereumKit.framework;
+			remoteRef = C940109F215D0C0000287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010A2215D0C0000287717 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = C94010A1215D0C0000287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010A4215D0C0000287717 /* EthereumKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EthereumKitTests.xctest;
+			remoteRef = C94010A3215D0C0000287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoEthereumSwift.framework;
+			remoteRef = C94010AB215D0C0600287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010AE215D0C0600287717 /* CryptoEthereumSwiftTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CryptoEthereumSwiftTests.xctest;
+			remoteRef = C94010AD215D0C0600287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010B0215D0C0600287717 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = C94010AF215D0C0600287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010BE215D0D2D00287717 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = C94010BD215D0D2D00287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010C0215D0D2D00287717 /* CryptoSwift-TestHostApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "CryptoSwift-TestHostApp.app";
+			remoteRef = C94010BF215D0D2D00287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010C2215D0D2D00287717 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = C94010C1215D0D2D00287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010C4215D0D2D00287717 /* TestsPerformance-Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "TestsPerformance-Mac.xctest";
+			remoteRef = C94010C3215D0D2D00287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C94010C6215D0D2D00287717 /* TestsPerformance-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "TestsPerformance-iOS.xctest";
+			remoteRef = C94010C5215D0D2D00287717 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F86EC62167FFA3003826F8 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C9F86EC52167FFA3003826F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F86EC82167FFA3003826F8 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = C9F86EC72167FFA3003826F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F86ECA2167FFA3003826F8 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C9F86EC92167FFA3003826F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F86ECC2167FFA3003826F8 /* Alamofire macOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire macOS Tests.xctest";
+			remoteRef = C9F86ECB2167FFA3003826F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F86ECE2167FFA3003826F8 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C9F86ECD2167FFA3003826F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F86ED02167FFA3003826F8 /* Alamofire tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire tvOS Tests.xctest";
+			remoteRef = C9F86ECF2167FFA3003826F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9F86ED22167FFA3003826F8 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = C9F86ED12167FFA3003826F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9401024215C072500287717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9401034215C072600287717 /* LaunchScreen.storyboard in Resources */,
+				C9401031215C072600287717 /* Assets.xcassets in Resources */,
+				C94010CE215E9E5200287717 /* Simba-NS.png in Resources */,
+				C9F86EB92167DE17003826F8 /* placeholder.png in Resources */,
+				C94010CC215E9E0400287717 /* SIMBA-S.png in Resources */,
+				C940102F215C072500287717 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9401022215C072500287717 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9F86EDD2167FFB5003826F8 /* APIHelper.swift in Sources */,
+				C9F86EEA216D38B3003826F8 /* GetRegModel.swift in Sources */,
+				C9F86EE32167FFB5003826F8 /* Models.swift in Sources */,
+				C94010CA215D619C00287717 /* ImportWalletViewController.swift in Sources */,
+				C9F86EDE2167FFB5003826F8 /* AlamofireImplementations.swift in Sources */,
+				C922E6D72163AD6400BAC50D /* Wallet.xcdatamodeld in Sources */,
+				C9F86EE12167FFB5003826F8 /* Dwarf.swift in Sources */,
+				C9F86EEC216E5848003826F8 /* RegTableViewController.swift in Sources */,
+				C940102C215C072500287717 /* ViewController.swift in Sources */,
+				C940102A215C072500287717 /* AppDelegate.swift in Sources */,
+				C9F86EE22167FFB5003826F8 /* Extensions.swift in Sources */,
+				C9F86EB72167B16F003826F8 /* InfoViewController.swift in Sources */,
+				C9F86EDF2167FFB5003826F8 /* DefaultAPI.swift in Sources */,
+				C9F86EE02167FFB5003826F8 /* APIs.swift in Sources */,
+				C94010C8215D618800287717 /* GenerateWalletViewController.swift in Sources */,
+				C92C4C692178CB6F00DDD27E /* PostRegistrationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9DD804E21654A2600E7111C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EthereumKit;
+			targetProxy = C9DD804D21654A2600E7111C /* PBXContainerItemProxy */;
+		};
+		C9DD805521654AE700E7111C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = C9DD805421654AE700E7111C /* PBXContainerItemProxy */;
+		};
+		C9DD805921654B0100E7111C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoEthereumSwift;
+			targetProxy = C9DD805821654B0100E7111C /* PBXContainerItemProxy */;
+		};
+		C9F86EE7216800AD003826F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = C9F86EE6216800AD003826F8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C940102D215C072500287717 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C940102E215C072500287717 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C9401032215C072600287717 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9401033215C072600287717 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C9401036215C072600287717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C9401037215C072600287717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9401039215C072600287717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QPG5LX748F;
+				INFOPLIST_FILE = SIMBA_CarDemo_iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ITAMCO.SIMBA-CarDemo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C940103A215C072600287717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QPG5LX748F;
+				INFOPLIST_FILE = SIMBA_CarDemo_iOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ITAMCO.SIMBA-CarDemo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9401021215C072500287717 /* Build configuration list for PBXProject "SIMBA_CarDemo_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9401036215C072600287717 /* Debug */,
+				C9401037215C072600287717 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9401038215C072600287717 /* Build configuration list for PBXNativeTarget "SIMBA_CarDemo_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9401039215C072600287717 /* Debug */,
+				C940103A215C072600287717 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C922E6D52163AD6400BAC50D /* Wallet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C922E6D62163AD6400BAC50D /* Wallet.xcdatamodel */,
+			);
+			currentVersion = C922E6D62163AD6400BAC50D /* Wallet.xcdatamodel */;
+			path = Wallet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C940101E215C072500287717 /* Project object */;
+}
