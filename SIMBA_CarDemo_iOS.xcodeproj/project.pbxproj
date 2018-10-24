@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9216B692180BB050013F431 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B0F2180BA6D0013F431 /* Alamofire.framework */; };
+		C9216B6A2180BB050013F431 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B0F2180BA6D0013F431 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9216B6D2180BB290013F431 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B322180BAA20013F431 /* CryptoEthereumSwift.framework */; };
+		C9216B6E2180BB290013F431 /* CryptoEthereumSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B322180BAA20013F431 /* CryptoEthereumSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9216B712180BB3C0013F431 /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B3E2180BAA90013F431 /* EthereumKit.framework */; };
+		C9216B722180BB3C0013F431 /* EthereumKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B3E2180BAA90013F431 /* EthereumKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9216B752180BB490013F431 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B5E2180BAB90013F431 /* CryptoSwift.framework */; };
+		C9216B762180BB490013F431 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9216B5E2180BAB90013F431 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C922E6D72163AD6400BAC50D /* Wallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C922E6D52163AD6400BAC50D /* Wallet.xcdatamodeld */; };
 		C92C4C692178CB6F00DDD27E /* PostRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92C4C682178CB6F00DDD27E /* PostRegistrationViewController.swift */; };
 		C940102A215C072500287717 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9401029215C072500287717 /* AppDelegate.swift */; };
@@ -18,12 +26,6 @@
 		C94010CA215D619C00287717 /* ImportWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94010C9215D619C00287717 /* ImportWalletViewController.swift */; };
 		C94010CC215E9E0400287717 /* SIMBA-S.png in Resources */ = {isa = PBXBuildFile; fileRef = C94010CB215E9E0400287717 /* SIMBA-S.png */; };
 		C94010CE215E9E5200287717 /* Simba-NS.png in Resources */ = {isa = PBXBuildFile; fileRef = C94010CD215E9E5100287717 /* Simba-NS.png */; };
-		C9DD804B21654A2600E7111C /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94010A0215D0C0000287717 /* EthereumKit.framework */; };
-		C9DD804C21654A2600E7111C /* EthereumKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C94010A0215D0C0000287717 /* EthereumKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9DD805221654AE700E7111C /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94010BE215D0D2D00287717 /* CryptoSwift.framework */; };
-		C9DD805321654AE700E7111C /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C94010BE215D0D2D00287717 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9DD805621654B0100E7111C /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */; };
-		C9DD805721654B0100E7111C /* CryptoEthereumSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F86EB72167B16F003826F8 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EB62167B16F003826F8 /* InfoViewController.swift */; };
 		C9F86EB92167DE17003826F8 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C9F86EB82167DE16003826F8 /* placeholder.png */; };
 		C9F86EDD2167FFB5003826F8 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED42167FFB5003826F8 /* APIHelper.swift */; };
@@ -33,166 +35,164 @@
 		C9F86EE12167FFB5003826F8 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDA2167FFB5003826F8 /* Dwarf.swift */; };
 		C9F86EE22167FFB5003826F8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDB2167FFB5003826F8 /* Extensions.swift */; };
 		C9F86EE32167FFB5003826F8 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDC2167FFB5003826F8 /* Models.swift */; };
-		C9F86EE4216800AD003826F8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F86EC62167FFA3003826F8 /* Alamofire.framework */; };
-		C9F86EE5216800AD003826F8 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9F86EC62167FFA3003826F8 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9F86EEA216D38B3003826F8 /* GetRegModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EE9216D38B3003826F8 /* GetRegModel.swift */; };
 		C9F86EEC216E5848003826F8 /* RegTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EEB216E5848003826F8 /* RegTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C940109F215D0C0000287717 /* PBXContainerItemProxy */ = {
+		C9216B0E2180BA6D0013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AEBA90D51FFA21ED003EA2BA;
-			remoteInfo = EthereumKit;
-		};
-		C94010A1215D0C0000287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AEBA90F01FFA2C6A003EA2BA;
-			remoteInfo = Example;
-		};
-		C94010A3215D0C0000287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AE90A0751FFA698D005ED7AF;
-			remoteInfo = EthereumKitTests;
-		};
-		C94010AB215D0C0600287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1AD1D61B20B7E822007AFF80;
-			remoteInfo = CryptoEthereumSwift;
-		};
-		C94010AD215D0C0600287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1AD1D62420B7E822007AFF80;
-			remoteInfo = CryptoEthereumSwiftTests;
-		};
-		C94010AF215D0C0600287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1AD1D63E20B7EF2F007AFF80;
-			remoteInfo = Example;
-		};
-		C94010BD215D0D2D00287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE45519693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		C94010BF215D0D2D00287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 75211F92207249D8004E41F8;
-			remoteInfo = "CryptoSwift-TestHostApp";
-		};
-		C94010C1215D0D2D00287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE46019693E190098E6F3;
-			remoteInfo = Tests;
-		};
-		C94010C3215D0D2D00287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
-			remoteInfo = "TestsPerformance-Mac";
-		};
-		C94010C5215D0D2D00287717 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
-			remoteInfo = "TestsPerformance-iOS";
-		};
-		C9DD804D21654A2600E7111C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = AEBA90D41FFA21ED003EA2BA;
-			remoteInfo = EthereumKit;
-		};
-		C9DD805421654AE700E7111C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 754BE45419693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		C9DD805821654B0100E7111C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 1AD1D61A20B7E822007AFF80;
-			remoteInfo = CryptoEthereumSwift;
-		};
-		C9F86EC52167FFA3003826F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS";
 		};
-		C9F86EC72167FFA3003826F8 /* PBXContainerItemProxy */ = {
+		C9216B102180BA6D0013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS Tests";
 		};
-		C9F86EC92167FFA3003826F8 /* PBXContainerItemProxy */ = {
+		C9216B122180BA6D0013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
 			remoteInfo = "Alamofire macOS";
 		};
-		C9F86ECB2167FFA3003826F8 /* PBXContainerItemProxy */ = {
+		C9216B142180BA6D0013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
 			remoteInfo = "Alamofire macOS Tests";
 		};
-		C9F86ECD2167FFA3003826F8 /* PBXContainerItemProxy */ = {
+		C9216B162180BA6D0013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4CF626EF1BA7CB3E0011A099;
 			remoteInfo = "Alamofire tvOS";
 		};
-		C9F86ECF2167FFA3003826F8 /* PBXContainerItemProxy */ = {
+		C9216B182180BA6D0013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4CF626F81BA7CB3E0011A099;
 			remoteInfo = "Alamofire tvOS Tests";
 		};
-		C9F86ED12167FFA3003826F8 /* PBXContainerItemProxy */ = {
+		C9216B1A2180BA6D0013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E4202FE01B667AA100C997FB;
 			remoteInfo = "Alamofire watchOS";
 		};
-		C9F86EE6216800AD003826F8 /* PBXContainerItemProxy */ = {
+		C9216B312180BAA20013F431 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+			containerPortal = C9216B2B2180BAA20013F431 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1AD1D61B20B7E822007AFF80;
+			remoteInfo = CryptoEthereumSwift;
+		};
+		C9216B332180BAA20013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B2B2180BAA20013F431 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1AD1D62420B7E822007AFF80;
+			remoteInfo = CryptoEthereumSwiftTests;
+		};
+		C9216B352180BAA20013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B2B2180BAA20013F431 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1AD1D63E20B7EF2F007AFF80;
+			remoteInfo = Example;
+		};
+		C9216B3D2180BAA90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B372180BAA90013F431 /* EthereumKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEBA90D51FFA21ED003EA2BA;
+			remoteInfo = EthereumKit;
+		};
+		C9216B3F2180BAA90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B372180BAA90013F431 /* EthereumKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AEBA90F01FFA2C6A003EA2BA;
+			remoteInfo = Example;
+		};
+		C9216B412180BAA90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B372180BAA90013F431 /* EthereumKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AE90A0751FFA698D005ED7AF;
+			remoteInfo = EthereumKitTests;
+		};
+		C9216B5D2180BAB90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		C9216B5F2180BAB90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75211F92207249D8004E41F8;
+			remoteInfo = "CryptoSwift-TestHostApp";
+		};
+		C9216B612180BAB90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		C9216B632180BAB90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7595C14A2072E48C00EA1A5F;
+			remoteInfo = "TestsPerformance-Mac";
+		};
+		C9216B652180BAB90013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7564F0602072EAEB00CA5A96;
+			remoteInfo = "TestsPerformance-iOS";
+		};
+		C9216B6B2180BB050013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS";
+		};
+		C9216B6F2180BB290013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B2B2180BAA20013F431 /* CryptoEthereumSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AD1D61A20B7E822007AFF80;
+			remoteInfo = CryptoEthereumSwift;
+		};
+		C9216B732180BB3C0013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B372180BAA90013F431 /* EthereumKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AEBA90D41FFA21ED003EA2BA;
+			remoteInfo = EthereumKit;
+		};
+		C9216B772180BB490013F431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -203,10 +203,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C9DD805721654B0100E7111C /* CryptoEthereumSwift.framework in Embed Frameworks */,
-				C9DD804C21654A2600E7111C /* EthereumKit.framework in Embed Frameworks */,
-				C9DD805321654AE700E7111C /* CryptoSwift.framework in Embed Frameworks */,
-				C9F86EE5216800AD003826F8 /* Alamofire.framework in Embed Frameworks */,
+				C9216B6E2180BB290013F431 /* CryptoEthereumSwift.framework in Embed Frameworks */,
+				C9216B6A2180BB050013F431 /* Alamofire.framework in Embed Frameworks */,
+				C9216B722180BB3C0013F431 /* EthereumKit.framework in Embed Frameworks */,
+				C9216B762180BB490013F431 /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +214,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+		C9216B2B2180BAA20013F431 /* CryptoEthereumSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoEthereumSwift.xcodeproj; path = "CryptoEthereumSwift-master/CryptoEthereumSwift.xcodeproj"; sourceTree = "<group>"; };
+		C9216B372180BAA90013F431 /* EthereumKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EthereumKit.xcodeproj; path = "EthereumKit-master/EthereumKit.xcodeproj"; sourceTree = "<group>"; };
+		C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "krzyzanowskim-CryptoSwift-2bcb008/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		C922E6D62163AD6400BAC50D /* Wallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallet.xcdatamodel; sourceTree = "<group>"; };
 		C92C4C682178CB6F00DDD27E /* PostRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRegistrationViewController.swift; sourceTree = "<group>"; };
 		C9401026215C072500287717 /* SIMBA_CarDemo_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SIMBA_CarDemo_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,16 +227,12 @@
 		C9401030215C072600287717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9401033215C072600287717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9401035215C072600287717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9401099215D0C0000287717 /* EthereumKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EthereumKit.xcodeproj; path = "EthereumKit-master/EthereumKit.xcodeproj"; sourceTree = "<group>"; };
-		C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoEthereumSwift.xcodeproj; path = "CryptoEthereumSwift-master/CryptoEthereumSwift.xcodeproj"; sourceTree = "<group>"; };
-		C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "krzyzanowskim-CryptoSwift-2bcb008/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		C94010C7215D618800287717 /* GenerateWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateWalletViewController.swift; sourceTree = "<group>"; };
 		C94010C9215D619C00287717 /* ImportWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletViewController.swift; sourceTree = "<group>"; };
 		C94010CB215E9E0400287717 /* SIMBA-S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SIMBA-S.png"; sourceTree = SOURCE_ROOT; };
 		C94010CD215E9E5100287717 /* Simba-NS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simba-NS.png"; sourceTree = SOURCE_ROOT; };
 		C9F86EB62167B16F003826F8 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C9F86EB82167DE16003826F8 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = SOURCE_ROOT; };
-		C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		C9F86ED42167FFB5003826F8 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		C9F86ED52167FFB5003826F8 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
 		C9F86ED72167FFB5003826F8 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
@@ -249,23 +249,69 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9DD805621654B0100E7111C /* CryptoEthereumSwift.framework in Frameworks */,
-				C9DD804B21654A2600E7111C /* EthereumKit.framework in Frameworks */,
-				C9DD805221654AE700E7111C /* CryptoSwift.framework in Frameworks */,
-				C9F86EE4216800AD003826F8 /* Alamofire.framework in Frameworks */,
+				C9216B6D2180BB290013F431 /* CryptoEthereumSwift.framework in Frameworks */,
+				C9216B692180BB050013F431 /* Alamofire.framework in Frameworks */,
+				C9216B712180BB3C0013F431 /* EthereumKit.framework in Frameworks */,
+				C9216B752180BB490013F431 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9216B042180BA6D0013F431 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9216B0F2180BA6D0013F431 /* Alamofire.framework */,
+				C9216B112180BA6D0013F431 /* Alamofire iOS Tests.xctest */,
+				C9216B132180BA6D0013F431 /* Alamofire.framework */,
+				C9216B152180BA6D0013F431 /* Alamofire macOS Tests.xctest */,
+				C9216B172180BA6D0013F431 /* Alamofire.framework */,
+				C9216B192180BA6D0013F431 /* Alamofire tvOS Tests.xctest */,
+				C9216B1B2180BA6D0013F431 /* Alamofire.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9216B2C2180BAA20013F431 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9216B322180BAA20013F431 /* CryptoEthereumSwift.framework */,
+				C9216B342180BAA20013F431 /* CryptoEthereumSwiftTests.xctest */,
+				C9216B362180BAA20013F431 /* Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9216B382180BAA90013F431 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9216B3E2180BAA90013F431 /* EthereumKit.framework */,
+				C9216B402180BAA90013F431 /* Example.app */,
+				C9216B422180BAA90013F431 /* EthereumKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9216B562180BAB90013F431 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9216B5E2180BAB90013F431 /* CryptoSwift.framework */,
+				C9216B602180BAB90013F431 /* CryptoSwift-TestHostApp.app */,
+				C9216B622180BAB90013F431 /* Tests.xctest */,
+				C9216B642180BAB90013F431 /* TestsPerformance-Mac.xctest */,
+				C9216B662180BAB90013F431 /* TestsPerformance-iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C940101D215C072500287717 = {
 			isa = PBXGroup;
 			children = (
-				C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */,
-				C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */,
-				C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */,
-				C9401099215D0C0000287717 /* EthereumKit.xcodeproj */,
+				C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */,
+				C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */,
+				C9216B372180BAA90013F431 /* EthereumKit.xcodeproj */,
+				C9216B2B2180BAA20013F431 /* CryptoEthereumSwift.xcodeproj */,
 				C9F86ED32167FFB5003826F8 /* Swaggers */,
 				C9401028215C072500287717 /* SIMBA_CarDemo_iOS */,
 				C9401027215C072500287717 /* Products */,
@@ -308,52 +354,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C940109A215D0C0000287717 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C94010A0215D0C0000287717 /* EthereumKit.framework */,
-				C94010A2215D0C0000287717 /* Example.app */,
-				C94010A4215D0C0000287717 /* EthereumKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C94010A6215D0C0500287717 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */,
-				C94010AE215D0C0600287717 /* CryptoEthereumSwiftTests.xctest */,
-				C94010B0215D0C0600287717 /* Example.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C94010B6215D0D2C00287717 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C94010BE215D0D2D00287717 /* CryptoSwift.framework */,
-				C94010C0215D0D2D00287717 /* CryptoSwift-TestHostApp.app */,
-				C94010C2215D0D2D00287717 /* Tests.xctest */,
-				C94010C4215D0D2D00287717 /* TestsPerformance-Mac.xctest */,
-				C94010C6215D0D2D00287717 /* TestsPerformance-iOS.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C9F86EBB2167FFA3003826F8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C9F86EC62167FFA3003826F8 /* Alamofire.framework */,
-				C9F86EC82167FFA3003826F8 /* Alamofire iOS Tests.xctest */,
-				C9F86ECA2167FFA3003826F8 /* Alamofire.framework */,
-				C9F86ECC2167FFA3003826F8 /* Alamofire macOS Tests.xctest */,
-				C9F86ECE2167FFA3003826F8 /* Alamofire.framework */,
-				C9F86ED02167FFA3003826F8 /* Alamofire tvOS Tests.xctest */,
-				C9F86ED22167FFA3003826F8 /* Alamofire.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		C9F86ED32167FFB5003826F8 /* Swaggers */ = {
@@ -402,10 +402,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				C9DD804E21654A2600E7111C /* PBXTargetDependency */,
-				C9DD805521654AE700E7111C /* PBXTargetDependency */,
-				C9DD805921654B0100E7111C /* PBXTargetDependency */,
-				C9F86EE7216800AD003826F8 /* PBXTargetDependency */,
+				C9216B6C2180BB050013F431 /* PBXTargetDependency */,
+				C9216B702180BB290013F431 /* PBXTargetDependency */,
+				C9216B742180BB3C0013F431 /* PBXTargetDependency */,
+				C9216B782180BB490013F431 /* PBXTargetDependency */,
 			);
 			name = SIMBA_CarDemo_iOS;
 			productName = SIMBA_CarDemo_iOS;
@@ -440,20 +440,20 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C9F86EBB2167FFA3003826F8 /* Products */;
-					ProjectRef = C9F86EBA2167FFA3003826F8 /* Alamofire.xcodeproj */;
+					ProductGroup = C9216B042180BA6D0013F431 /* Products */;
+					ProjectRef = C9216B032180BA6D0013F431 /* Alamofire.xcodeproj */;
 				},
 				{
-					ProductGroup = C94010A6215D0C0500287717 /* Products */;
-					ProjectRef = C94010A5215D0C0500287717 /* CryptoEthereumSwift.xcodeproj */;
+					ProductGroup = C9216B2C2180BAA20013F431 /* Products */;
+					ProjectRef = C9216B2B2180BAA20013F431 /* CryptoEthereumSwift.xcodeproj */;
 				},
 				{
-					ProductGroup = C94010B6215D0D2C00287717 /* Products */;
-					ProjectRef = C94010B5215D0D2C00287717 /* CryptoSwift.xcodeproj */;
+					ProductGroup = C9216B562180BAB90013F431 /* Products */;
+					ProjectRef = C9216B552180BAB90013F431 /* CryptoSwift.xcodeproj */;
 				},
 				{
-					ProductGroup = C940109A215D0C0000287717 /* Products */;
-					ProjectRef = C9401099215D0C0000287717 /* EthereumKit.xcodeproj */;
+					ProductGroup = C9216B382180BAA90013F431 /* Products */;
+					ProjectRef = C9216B372180BAA90013F431 /* EthereumKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -464,130 +464,130 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C94010A0215D0C0000287717 /* EthereumKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = EthereumKit.framework;
-			remoteRef = C940109F215D0C0000287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010A2215D0C0000287717 /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = C94010A1215D0C0000287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010A4215D0C0000287717 /* EthereumKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = EthereumKitTests.xctest;
-			remoteRef = C94010A3215D0C0000287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010AC215D0C0600287717 /* CryptoEthereumSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoEthereumSwift.framework;
-			remoteRef = C94010AB215D0C0600287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010AE215D0C0600287717 /* CryptoEthereumSwiftTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CryptoEthereumSwiftTests.xctest;
-			remoteRef = C94010AD215D0C0600287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010B0215D0C0600287717 /* Example.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Example.app;
-			remoteRef = C94010AF215D0C0600287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010BE215D0D2D00287717 /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = C94010BD215D0D2D00287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010C0215D0D2D00287717 /* CryptoSwift-TestHostApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "CryptoSwift-TestHostApp.app";
-			remoteRef = C94010BF215D0D2D00287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010C2215D0D2D00287717 /* Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Tests.xctest;
-			remoteRef = C94010C1215D0D2D00287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010C4215D0D2D00287717 /* TestsPerformance-Mac.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-Mac.xctest";
-			remoteRef = C94010C3215D0D2D00287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C94010C6215D0D2D00287717 /* TestsPerformance-iOS.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "TestsPerformance-iOS.xctest";
-			remoteRef = C94010C5215D0D2D00287717 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C9F86EC62167FFA3003826F8 /* Alamofire.framework */ = {
+		C9216B0F2180BA6D0013F431 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
-			remoteRef = C9F86EC52167FFA3003826F8 /* PBXContainerItemProxy */;
+			remoteRef = C9216B0E2180BA6D0013F431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C9F86EC82167FFA3003826F8 /* Alamofire iOS Tests.xctest */ = {
+		C9216B112180BA6D0013F431 /* Alamofire iOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Alamofire iOS Tests.xctest";
-			remoteRef = C9F86EC72167FFA3003826F8 /* PBXContainerItemProxy */;
+			remoteRef = C9216B102180BA6D0013F431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C9F86ECA2167FFA3003826F8 /* Alamofire.framework */ = {
+		C9216B132180BA6D0013F431 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
-			remoteRef = C9F86EC92167FFA3003826F8 /* PBXContainerItemProxy */;
+			remoteRef = C9216B122180BA6D0013F431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C9F86ECC2167FFA3003826F8 /* Alamofire macOS Tests.xctest */ = {
+		C9216B152180BA6D0013F431 /* Alamofire macOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Alamofire macOS Tests.xctest";
-			remoteRef = C9F86ECB2167FFA3003826F8 /* PBXContainerItemProxy */;
+			remoteRef = C9216B142180BA6D0013F431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C9F86ECE2167FFA3003826F8 /* Alamofire.framework */ = {
+		C9216B172180BA6D0013F431 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
-			remoteRef = C9F86ECD2167FFA3003826F8 /* PBXContainerItemProxy */;
+			remoteRef = C9216B162180BA6D0013F431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C9F86ED02167FFA3003826F8 /* Alamofire tvOS Tests.xctest */ = {
+		C9216B192180BA6D0013F431 /* Alamofire tvOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Alamofire tvOS Tests.xctest";
-			remoteRef = C9F86ECF2167FFA3003826F8 /* PBXContainerItemProxy */;
+			remoteRef = C9216B182180BA6D0013F431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C9F86ED22167FFA3003826F8 /* Alamofire.framework */ = {
+		C9216B1B2180BA6D0013F431 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Alamofire.framework;
-			remoteRef = C9F86ED12167FFA3003826F8 /* PBXContainerItemProxy */;
+			remoteRef = C9216B1A2180BA6D0013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B322180BAA20013F431 /* CryptoEthereumSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoEthereumSwift.framework;
+			remoteRef = C9216B312180BAA20013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B342180BAA20013F431 /* CryptoEthereumSwiftTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CryptoEthereumSwiftTests.xctest;
+			remoteRef = C9216B332180BAA20013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B362180BAA20013F431 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = C9216B352180BAA20013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B3E2180BAA90013F431 /* EthereumKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EthereumKit.framework;
+			remoteRef = C9216B3D2180BAA90013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B402180BAA90013F431 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = C9216B3F2180BAA90013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B422180BAA90013F431 /* EthereumKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EthereumKitTests.xctest;
+			remoteRef = C9216B412180BAA90013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B5E2180BAB90013F431 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = C9216B5D2180BAB90013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B602180BAB90013F431 /* CryptoSwift-TestHostApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "CryptoSwift-TestHostApp.app";
+			remoteRef = C9216B5F2180BAB90013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B622180BAB90013F431 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = C9216B612180BAB90013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B642180BAB90013F431 /* TestsPerformance-Mac.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "TestsPerformance-Mac.xctest";
+			remoteRef = C9216B632180BAB90013F431 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C9216B662180BAB90013F431 /* TestsPerformance-iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "TestsPerformance-iOS.xctest";
+			remoteRef = C9216B652180BAB90013F431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -635,25 +635,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C9DD804E21654A2600E7111C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = EthereumKit;
-			targetProxy = C9DD804D21654A2600E7111C /* PBXContainerItemProxy */;
-		};
-		C9DD805521654AE700E7111C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CryptoSwift;
-			targetProxy = C9DD805421654AE700E7111C /* PBXContainerItemProxy */;
-		};
-		C9DD805921654B0100E7111C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CryptoEthereumSwift;
-			targetProxy = C9DD805821654B0100E7111C /* PBXContainerItemProxy */;
-		};
-		C9F86EE7216800AD003826F8 /* PBXTargetDependency */ = {
+		C9216B6C2180BB050013F431 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";
-			targetProxy = C9F86EE6216800AD003826F8 /* PBXContainerItemProxy */;
+			targetProxy = C9216B6B2180BB050013F431 /* PBXContainerItemProxy */;
+		};
+		C9216B702180BB290013F431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoEthereumSwift;
+			targetProxy = C9216B6F2180BB290013F431 /* PBXContainerItemProxy */;
+		};
+		C9216B742180BB3C0013F431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EthereumKit;
+			targetProxy = C9216B732180BB3C0013F431 /* PBXContainerItemProxy */;
+		};
+		C9216B782180BB490013F431 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = C9216B772180BB490013F431 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
