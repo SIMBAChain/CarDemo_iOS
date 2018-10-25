@@ -45,18 +45,12 @@ class Decoders {
     }
 
     static func decode<T>(clazz: [T].Type, source: AnyObject) -> [T] {
-          print(type(of: source))
-        
-        print("decode array")
-    
-          //  print(source)
+        print(source)
         let array = [source]
             return array.map { Decoders.decode(clazz: T.self, source: $0) }
     }
 
     static func decode<T, Key: Hashable>(clazz: [Key:T].Type, source: AnyObject) -> [Key:T] {
-         print("decode dict")
-        print(source)
         let sourceDictionary = source as! [Key: AnyObject]
         var dictionary = [Key:T]()
         for (key, value) in sourceDictionary {
@@ -159,80 +153,51 @@ class Decoders {
              print("GetRegModelDecoder")
             
             let sourceDictionary = source as! [AnyHashable: Any]
-          print(sourceDictionary)
+         // print(sourceDictionary)
             let instance = GetRegModel()
             //-------------------------------------------------------
             //--this is where the items are grabed from the backend--
             //-------------------------------------------------------
             
-            //var results : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: sourceDictionary["results"] as AnyObject)
-             print("1")
-            var results : [AnyObject] = Decoders.decode(clazz: [AnyObject].self, source: sourceDictionary["results"] as AnyObject)
-            var resultsDict = results.first
             
-            print("resultsDict")
-             print(type(of: resultsDict))
-            print(resultsDict)
+        
+            var resultsarray: NSArray = sourceDictionary["results"] as! NSArray
+            var results : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: resultsarray.firstObject as AnyObject)
+      
+          //  var resultsDict : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: results as AnyObject)
+           // var resultsDict = results[0]
+      
+          
+            
            
-            print("2")
+         //   print(type(of: resultsdict))
+          //  print(resultsdict)
+           
+        
            // var payload : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: resultsDict["payload"] as AnyObject)
-            var payload = resultsDict!["payload"]
+         //NEED   var payload = resultsDict["payload"]
             
-            print("3")
-        //    var inputs = payload["inputs"]
-            print("4")
-      //      var raw : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: sourceDictionary["raw"] as AnyObject)
-            print("5")
-            //    instance.count = Decoders.decode(clazz: String.self, source: (sourceDictionary["count"] as AnyObject?)!)
-            print("6")
-           //     instance.next = Decoders.decode(clazz: String.self, source: (sourceDictionary["next"] as AnyObject?)!)
-            print("7")
-          //     instance.previous = Decoders.decode(clazz: String.self, source: (sourceDictionary["previous"] as AnyObject?)!)
-            print("8")
-          //      instance.results = results as [String : AnyObject]
-            instance.results = resultsDict as? [AnyObject]
-            print(resultsDict! as! [String:AnyObject])
-            instance.id = (resultsDict?["id"] as! String)
-            print(instance.id)
-            /*    instance.parent = results["parent"] as? String
-                instance.method = results["method"] as? String
-                instance.payload = results["payload"] as? [String : AnyObject]
-                instance.receipt = results["receipt"] as? String
-                instance.timestamp = results["timestamp"] as? String
-                instance.application = results["application"] as? String
-                instance.organisation = results["organisation"] as? String
-                instance.group = results["group"] as? String
-                instance.member = results["member"] as? String
-                instance.user = results["user"] as? String
-                instance.transactionHash = results["transactionHash"] as? String
-                instance.smart_contract = results["smart_contract"] as? String
-                instance.adapter = results["adapter"] as? String
-                instance.is_asset = results["is_asset"] as? String
-                instance.bytes_stored_on_blockchain = results["bytes_stored_on_blockchain"] as? String
-                instance.bundle = results["bundle"] as? String
-                instance.data_store = results["data_store"] as? String
-                instance.bytes_stored_on_datastore = results["bytes_stored_on_datastore"] as? String
-                instance.error = results["error"] as? String
-                instance.status = results["status"] as? String */
-            /*
-                instance.inputs = payload["inputs"] as? [String : AnyObject]
-                instance.raw = payload["raw"] as? [String : AnyObject]
-                instance.payloadMethod = payload["method"] as? String
+          
+          //NEED  var inputs = payload["inputs"]
+       
+           // var raw : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: sourceDictionary["raw"] as AnyObject)
+         
+                instance.count = Decoders.decode(clazz: Int32.self, source: (sourceDictionary["count"] as AnyObject?)!)
+         
+              var payload = results["payload"] as? [String : AnyObject]
+
             
-                instance.vin = inputs["vin"] as? String
-                instance.car = inputs["car"] as? String
-                instance._bundlehash = inputs["_bundlehash"] as? String
-                instance.make = inputs["make"] as? String
-                instance.model = inputs["model"] as? String
+            var inputs = payload!["inputs"] as? [String : AnyObject]
+  
+            instance.results = resultsarray  as! [NSDictionary]
+            instance.vin = inputs!["VIN"] as? String
+              instance.car = inputs!["car"] as? String
+         
+              instance.make = inputs!["Make"] as? String
+              instance.model = inputs!["Model"] as? String
             
-                instance.to = raw["to"] as? String
-                instance.data = raw["data"] as? String
-                instance.gasPrice = raw["gasPrice"] as? String
-                instance.gas = raw["gas"] as? String
-                instance.value = raw["value"] as? String
-                instance.from = raw["from"] as? String
-                instance.gasLimit = raw["gasLimit"] as? String
-                instance.nonce = raw["nonce"] as? String*/
+         
+     
             
                 print("GetRegModelDecoder")
             return instance

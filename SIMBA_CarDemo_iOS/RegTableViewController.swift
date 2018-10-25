@@ -14,13 +14,14 @@ class AuditTableViewController: UITableViewController {
     
     var SIMBADataArray = [GetRegModel]()
     var hashLastTen = [GetRegModel]().suffix(10)
+
     
     var accountSelected: String! = ""
     var accountName: String! = ""
     var SIMBACode : Int!
     var reversed: Bool! = false
     var ten: Int!
-    
+    var hashem: [NSDictionary] = []
     
     override func viewDidAppear(_ animated: Bool) {
         print("viewdidappear")
@@ -32,12 +33,17 @@ class AuditTableViewController: UITableViewController {
             if let SIMBAData = GetRegModel{
                 print("SIMBA DATA")
                 print(SIMBAData.first!.encodeToJSON())
+                
             }
             if GetRegModel != nil
             {
                 self.SIMBADataArray = GetRegModel!
                 self.hashLastTen = GetRegModel!.suffix(10)
-                self.ten = self.SIMBADataArray.count - 10
+                
+                self.hashem = self.hashLastTen[0].results!
+                self.ten = self.hashem.count - 10
+                print("hashem")
+                print(self.hashem)
                 self.tableView.reloadData()
                 
             }
@@ -87,7 +93,7 @@ class AuditTableViewController: UITableViewController {
     //-----TABLEVIEW
     //---------------------
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hashLastTen.count
+        return hashem.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,12 +108,17 @@ class AuditTableViewController: UITableViewController {
         {
             
           //  let currentSIMBAData = hashLastTen[indexPath.row + ten]
-            let currentSIMBAData = hashLastTen[indexPath.row]
+            let currentSIMBAData = hashem[indexPath.row]
+            let currentpayload = currentSIMBAData["payload"] as! NSDictionary
+            let currentinputs = currentpayload["inputs"] as! NSDictionary
+            print(currentinputs)
             cell = tableView.dequeueReusableCell(withIdentifier: "SIMBADataCell") as! SIMBADataCell
             print("currentSIMBAData")
             print(currentSIMBAData)
-            cell.auditNoLabel.text  = " Audit No. \(String(describing: currentSIMBAData.id!))"
-            cell.posterIDLabel.text = "Poster No. \(currentSIMBAData.make!)"
+            cell.IDLabel.text  = " ID: \((indexPath.row + 1))"
+            cell.MakeLabel.text = "Make: \(currentinputs["Make"]!)"
+            cell.ModelLabel.text = "Model: \(currentinputs["Model"]!)"
+            cell.VinLabel.text = "VIN: \(currentinputs["VIN"]!)"
         }
         else
         {
@@ -116,9 +127,10 @@ class AuditTableViewController: UITableViewController {
             // let ten = SIMBADataArray.count + 10
             let currentSIMBAData = self.hashLastTen[indexPath.row]
             cell = tableView.dequeueReusableCell(withIdentifier: "SIMBADataCell") as! SIMBADataCell
-            cell.auditNoLabel.text  = " Audit No. \(String(describing: currentSIMBAData.id!))"
-            cell.posterIDLabel.text = "Poster No. \(currentSIMBAData.make!)"
-            
+            cell.IDLabel.text  = "ID: \(String(describing: currentSIMBAData.count!))"
+            cell.MakeLabel.text = "Make: \(currentSIMBAData.make!)"
+            cell.ModelLabel.text = "Model: \(currentSIMBAData.model!)"
+            cell.VinLabel.text = "VIN: \(currentSIMBAData.vin!)"
             
         }
         return cell
@@ -160,8 +172,8 @@ class AuditTableViewController: UITableViewController {
 
 class SIMBADataCell: UITableViewCell {
     
-    @IBOutlet weak var auditNoLabel: UILabel!
-    @IBOutlet weak var posterIDLabel: UILabel!
+    @IBOutlet weak var IDLabel: UILabel!
+    @IBOutlet weak var MakeLabel: UILabel!
+    @IBOutlet weak var ModelLabel: UILabel!
+    @IBOutlet weak var VinLabel: UILabel!
 }
-
-

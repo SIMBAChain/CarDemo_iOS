@@ -9,11 +9,11 @@ import Foundation
 
 
 open class GetRegModel: JSONEncodable {
-    public var count: String?
+    public var count: Int32?
     public var next: String?
     public var previous: String?
    // public var results : [String:AnyObject]?
-    public var results : [AnyObject]?
+    public var results : [NSDictionary]?
     public var id: String?
     public var parent: String?
     public var method: String?
