@@ -51,6 +51,7 @@ class Decoders {
     }
 
     static func decode<T, Key: Hashable>(clazz: [Key:T].Type, source: AnyObject) -> [Key:T] {
+        if type(of: source) == NSNull.self {return [:]}
         let sourceDictionary = source as! [Key: AnyObject]
         var dictionary = [Key:T]()
         for (key, value) in sourceDictionary {
@@ -163,7 +164,7 @@ class Decoders {
         
             var resultsarray: NSArray = sourceDictionary["results"] as! NSArray
             var results : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: resultsarray.firstObject as AnyObject)
-      
+            if resultsarray.count == 0 {return instance}
           //  var resultsDict : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: results as AnyObject)
            // var resultsDict = results[0]
       

@@ -88,7 +88,56 @@ class AuditTableViewController: UITableViewController {
             }
         }
     }*/
+    //FILTER
+    @IBAction func filter()
+    {
+    let alert = UIAlertController(title: "Filter", message: nil, preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     
+    alert.addTextField(configurationHandler: { textField in
+    textField.placeholder = "Filter Records by Car Make"
+    })
+    
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+    
+    if let make = alert.textFields?.first?.text {
+    print("Your make: \(make)")
+        DefaultAPI.getFilteredSIMBAData(filter: make) { (GetRegModel, error) in
+            print("defaultapi.getsimbadata")
+            if let SIMBAData = GetRegModel{
+                print("SIMBA DATA")
+                print(SIMBAData.first!.encodeToJSON())
+                
+            }
+            if GetRegModel != nil
+            {
+                self.SIMBADataArray = GetRegModel!
+                self.hashLastTen = GetRegModel!.suffix(10)
+                
+                self.hashem = self.hashLastTen[0].results ?? []
+                self.ten = self.hashem.count - 10
+                print("hashem")
+                print(self.hashem)
+                self.tableView.reloadData()
+                
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Could not contact server", message: "check connection and try again.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                    self.dismiss(animated: true)
+                }))
+                
+                self.present(alert, animated: true)
+                return
+            }
+        }
+    }
+    }))
+    
+    self.present(alert, animated: true)
+    }
     //---------------------
     //-----TABLEVIEW
     //---------------------

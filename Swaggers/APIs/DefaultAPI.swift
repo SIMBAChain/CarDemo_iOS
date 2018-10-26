@@ -42,7 +42,35 @@ open class DefaultAPI: APIBase {
         
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
+    //get data with filter
+    open class func getFilteredSIMBAData(filter:String, completion: @escaping ((_ data: [GetRegModel]?,_ statusCode: Int?) -> Void)) {
+        print("getSIMBAData")
+        getFilteredSIMBADataWithRequestBuilder(filter: filter).execute { (response, error) -> Void in
+            print("getSIMBADataWithRequestBuilderCALLED")
+            // completion(response?.body, error);
+            completion(response?.body, response?.statusCode)
+            print(response?.statusCode)
+            //  let statusCodeSTR = String(response!.statusCode)
+            // print("GET DATA API CODE: " + statusCodeSTR)
+        }
+    }
     
+    
+    open class func getFilteredSIMBADataWithRequestBuilder(filter:String) -> RequestBuilder<[GetRegModel]> {
+        print("getSIMBADataWithRequestBuilderEXECUTED")
+        let path = "/v1/CarDemoiOS/registerCar?Make_contains=" + filter
+        let URLString = SwaggerClientAPI.basePath + path
+        
+        let nillableParameters: [String:Any?] = [:]
+        
+        let parameters = APIHelper.rejectNil(nillableParameters)
+        
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+        
+        let requestBuilder: RequestBuilder<[GetRegModel]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
     //post data
     open class func postSIMBAData(payload: GetRegModel, completion: @escaping ((_ error: Error?) -> Void)) {
         postSIMBADataWithRequestBuilder(payload: payload).execute { (response, error) -> Void in
