@@ -23,16 +23,19 @@ class AuditTableViewController: UITableViewController {
     var ten: Int!
     var hashem: [NSDictionary] = []
     
+    var selectedDict : NSDictionary = [:]
     override func viewDidAppear(_ animated: Bool) {
         print("viewdidappear")
         super.viewDidAppear(animated)
-
+  
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+ 
         
         DefaultAPI.getSIMBAData { (GetRegModel, error) in
-            print("defaultapi.getsimbadata")
-            if let SIMBAData = GetRegModel{
-                print("SIMBA DATA")
-                print(SIMBAData.first!.encodeToJSON())
+          
+            if GetRegModel != nil{
+               
                 
             }
             if GetRegModel != nil
@@ -42,8 +45,6 @@ class AuditTableViewController: UITableViewController {
                 
                 self.hashem = self.hashLastTen[0].results!
                 self.ten = self.hashem.count - 10
-                print("hashem")
-                print(self.hashem)
                 self.tableView.reloadData()
                 
             }
@@ -67,27 +68,29 @@ class AuditTableViewController: UITableViewController {
     }
     
     // MARK: Segue
-  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("Did select row")
+        print("Row \(indexPath.row)selected")
+        selectedDict = self.hashem[indexPath.row] 
+    //    selectedLabel = self.tableData[indexPath.row]
+        performSegue(withIdentifier: "detailView", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare for segue")
+       
         
-        if segue.destination is DetailViewController
-        {
-            let vc = segue.destination as? DetailViewController
-            vc?.accountSelected = accountSelected
-            vc?.accountName = accountName
-        }
-        
-        let ten = SIMBADataArray.count - 10
-        if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let object = hashLastTen[indexPath.row + ten].hashId!
-                
-                let controller = segue.destination as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    print("Did select row")
+                    print("Row \(indexPath.row)selected")
+                    selectedDict = self.hashem[indexPath.row]
+                let vc = segue.destination as! DetailViewController
+                vc.dict = selectedDict as NSDictionary
+                print(vc.dict)
             }
-        }
-    }*/
+        
+ 
+    }
     //FILTER
     @IBAction func filter()
     {
@@ -160,10 +163,9 @@ class AuditTableViewController: UITableViewController {
             let currentSIMBAData = hashem[indexPath.row]
             let currentpayload = currentSIMBAData["payload"] as! NSDictionary
             let currentinputs = currentpayload["inputs"] as! NSDictionary
-            print(currentinputs)
+            
             cell = tableView.dequeueReusableCell(withIdentifier: "SIMBADataCell") as! SIMBADataCell
-            print("currentSIMBAData")
-            print(currentSIMBAData)
+          
             cell.IDLabel.text  = " ID: \((indexPath.row + 1))"
             cell.MakeLabel.text = "Make: \(currentinputs["Make"]!)"
             cell.ModelLabel.text = "Model: \(currentinputs["Model"]!)"
@@ -189,10 +191,7 @@ class AuditTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105
     }
-    @IBAction func cancelViewController()
-    {
-        dismiss(animated: true)
-    }
+ 
     
     @IBAction func reverseOrder()
     {

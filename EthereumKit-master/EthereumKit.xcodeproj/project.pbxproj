@@ -26,7 +26,6 @@
 		AE0057362053A510007AA468 /* PrivateKeyAndPublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0057352053A510007AA468 /* PrivateKeyAndPublicKeyTests.swift */; };
 		AE0057382053A5E4007AA468 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0057372053A5E4007AA468 /* WalletTests.swift */; };
 		AE1270E920E8B1CA00487956 /* HDPublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1270E820E8B1CA00487956 /* HDPublicKeyTests.swift */; };
-		AE14A60D206F552D003A63FF /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE14A60A206F552D003A63FF /* CryptoSwift.framework */; };
 		AE14A610206F5555003A63FF /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE14A60A206F552D003A63FF /* CryptoSwift.framework */; };
 		AE14A611206F5555003A63FF /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE14A60A206F552D003A63FF /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE14A6242070A98D003A63FF /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE14A6232070A98D003A63FF /* English.swift */; };
@@ -86,9 +85,10 @@
 		AEBA90FD1FFA2C6A003EA2BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA90FB1FFA2C6A003EA2BA /* LaunchScreen.storyboard */; };
 		AEBA91041FFA2C74003EA2BA /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA90D51FFA21ED003EA2BA /* EthereumKit.framework */; };
 		AEBA91051FFA2C74003EA2BA /* EthereumKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA90D51FFA21ED003EA2BA /* EthereumKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEDC134820B90D4100C3B9E8 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */; };
 		AEDC134920B9133F00C3B9E8 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */; };
 		AEDC134A20B9133F00C3B9E8 /* CryptoEthereumSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C99646E12189F82D0071C38C /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99646E02189F82D0071C38C /* CryptoEthereumSwift.framework */; };
+		C99646E32189F83E0071C38C /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99646E22189F83E0071C38C /* CryptoSwift.framework */; };
 		D77FB336203DE3D0003213DB /* SMP+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77FB335203DE3D0003213DB /* SMP+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -214,6 +214,9 @@
 		AEBA90FC1FFA2C6A003EA2BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEBA90FE1FFA2C6A003EA2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
+		C99646DE2189F8290071C38C /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99646E02189F82D0071C38C /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoEthereumSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99646E22189F83E0071C38C /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77FB335203DE3D0003213DB /* SMP+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMP+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,8 +233,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEDC134820B90D4100C3B9E8 /* CryptoEthereumSwift.framework in Frameworks */,
-				AE14A60D206F552D003A63FF /* CryptoSwift.framework in Frameworks */,
+				C99646E32189F83E0071C38C /* CryptoSwift.framework in Frameworks */,
+				C99646E12189F82D0071C38C /* CryptoEthereumSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +425,7 @@
 				AEBA90F11FFA2C6A003EA2BA /* Example */,
 				AE14A607206F550F003A63FF /* Dependency */,
 				AEBA90D61FFA21ED003EA2BA /* Products */,
+				C99646DD2189F8290071C38C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -462,6 +466,16 @@
 				AEBA90FE1FFA2C6A003EA2BA /* Info.plist */,
 			);
 			path = Example;
+			sourceTree = "<group>";
+		};
+		C99646DD2189F8290071C38C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C99646E22189F83E0071C38C /* CryptoSwift.framework */,
+				C99646E02189F82D0071C38C /* CryptoEthereumSwift.framework */,
+				C99646DE2189F8290071C38C /* CryptoSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

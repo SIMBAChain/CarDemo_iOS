@@ -165,44 +165,50 @@ class Decoders {
             var resultsarray: NSArray = sourceDictionary["results"] as! NSArray
             var results : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: resultsarray.firstObject as AnyObject)
             if resultsarray.count == 0 {return instance}
-          //  var resultsDict : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: results as AnyObject)
-           // var resultsDict = results[0]
-      
-          
-            
-           
-         //   print(type(of: resultsdict))
-          //  print(resultsdict)
-           
-        
-           // var payload : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: resultsDict["payload"] as AnyObject)
-         //NEED   var payload = resultsDict["payload"]
-            
-          
-          //NEED  var inputs = payload["inputs"]
-       
-           // var raw : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: sourceDictionary["raw"] as AnyObject)
-         
                 instance.count = Decoders.decode(clazz: Int32.self, source: (sourceDictionary["count"] as AnyObject?)!)
-         
               var payload = results["payload"] as? [String : AnyObject]
-
-            
             var inputs = payload!["inputs"] as? [String : AnyObject]
-  
-            instance.results = resultsarray  as! [NSDictionary]
+            instance.results = (resultsarray  as! [NSDictionary])
             instance.vin = inputs!["VIN"] as? String
               instance.car = inputs!["car"] as? String
-         
               instance.make = inputs!["Make"] as? String
               instance.model = inputs!["Model"] as? String
-            
-         
-     
-            
                 print("GetRegModelDecoder")
             return instance
-        }    }()
+        }
+        
+        // Decoder for [IMAGE]
+        
+        Decoders.addDecoder(clazz: [GetImageModel].self) { (source: AnyObject) -> [GetImageModel] in
+            print("[GetRegModelDecoder]")
+            
+            return Decoders.decode(clazz: [GetImageModel].self, source: source)
+        }
+        
+        // Decoder for IMAGE
+        Decoders.addDecoder(clazz: GetImageModel.self) { (source: AnyObject) -> GetImageModel in
+            print("GetRegModelDecoder")
+            
+            let sourceDictionary = source as! [AnyHashable: Any]
+            // print(sourceDictionary)
+            let instance = GetImageModel()
+            //-------------------------------------------------------
+            //--this is where the items are grabed from the backend--
+            //-------------------------------------------------------
+            
+            
+            
+     
+            instance.bundle_hash = (sourceDictionary["bundle_hash"] as! String)
+            instance.manifest = (sourceDictionary["manifest"] as! Array<Any>)
+   
+            print("GetRegModelDecoder")
+            return instance
+        }
+        
+        
+        
+    }()
 
     static fileprivate func initialize() {
         _ = Decoders.__once

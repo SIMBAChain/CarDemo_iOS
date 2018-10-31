@@ -13,20 +13,20 @@ open class DefaultAPI: APIBase {
     /*
      - parameter completion: completion handler to receive the data and the error objects
      */
-    //get data
+    //GET DATA
     open class func getSIMBAData(completion: @escaping ((_ data: [GetRegModel]?,_ statusCode: Int?) -> Void)) {
         print("getSIMBAData")
         getSIMBADataWithRequestBuilder().execute { (response, error) -> Void in
             print("getSIMBADataWithRequestBuilderCALLED")
             // completion(response?.body, error);
             completion(response?.body, response?.statusCode)
-            print(response?.statusCode)
+          //  print(response?.statusCode)
            //  let statusCodeSTR = String(response!.statusCode)
             // print("GET DATA API CODE: " + statusCodeSTR)
         }
     }
     
-    
+    //GET DATA WITH REQUEST BUILDER
     open class func getSIMBADataWithRequestBuilder() -> RequestBuilder<[GetRegModel]> {
         print("getSIMBADataWithRequestBuilderEXECUTED")
         let path = "/v1/CarDemoiOS/registerCar"
@@ -42,20 +42,21 @@ open class DefaultAPI: APIBase {
         
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
-    //get data with filter
+    //-----------------------------------------------------------------------------------------------------------------------------------------
+    //GET FILTERED DATA
     open class func getFilteredSIMBAData(filter:String, completion: @escaping ((_ data: [GetRegModel]?,_ statusCode: Int?) -> Void)) {
         print("getSIMBAData")
         getFilteredSIMBADataWithRequestBuilder(filter: filter).execute { (response, error) -> Void in
             print("getSIMBADataWithRequestBuilderCALLED")
             // completion(response?.body, error);
             completion(response?.body, response?.statusCode)
-            print(response?.statusCode)
+          //  print(response?.statusCode)
             //  let statusCodeSTR = String(response!.statusCode)
             // print("GET DATA API CODE: " + statusCodeSTR)
         }
     }
-    
-    
+
+    //GET FILTERED DATA WITH REQEUST BUILDER
     open class func getFilteredSIMBADataWithRequestBuilder(filter:String) -> RequestBuilder<[GetRegModel]> {
         print("getSIMBADataWithRequestBuilderEXECUTED")
         let path = "/v1/CarDemoiOS/registerCar?Make_contains=" + filter
@@ -71,7 +72,39 @@ open class DefaultAPI: APIBase {
         
         return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
     }
-    //post data
+    //+-----------------------------------------------------------------------------------------------------------------+
+    //GET IMAGE DATA
+    open class func getSIMBADataImage(txn_id:String, completion: @escaping ((_ data: [GetImageModel]?,_ statusCode: Int?) -> Void)) {
+        print("getSIMBAData")
+        getSIMBADataImageWithRequestBuilder(txn_id: txn_id).execute { (response, error) -> Void in
+            print("getSIMBADataWithRequestBuilderCALLED")
+            // completion(response?.body, error);
+            completion(response?.body, response?.statusCode)
+            //  print(response?.statusCode)
+            //  let statusCodeSTR = String(response!.statusCode)
+            // print("GET DATA API CODE: " + statusCodeSTR)
+        }
+    }
+    
+    //GET IMAGE DATA WITH REQEUST BUILDER
+    open class func getSIMBADataImageWithRequestBuilder(txn_id:String) -> RequestBuilder<[GetImageModel]> {
+        print("getSIMBADataWithRequestBuilderEXECUTED")
+        let path = "/v1/CarDemoiOS/transaction/" + txn_id + "/bundle/"
+        let URLString = SwaggerClientAPI.basePath + path
+        
+        let nillableParameters: [String:Any?] = [:]
+        
+        let parameters = APIHelper.rejectNil(nillableParameters)
+        
+        let convertedParameters = APIHelper.convertBoolToString(parameters)
+        
+        let requestBuilder: RequestBuilder<[GetImageModel]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        
+        return requestBuilder.init(method: "GET", URLString: URLString, parameters: convertedParameters, isBody: true)
+    }
+    //+-----------------------------------------------------------------------------------------------------------------+
+    //+-------------------------------------------------POST DATA-------------------------------------------------------+
+    //+-----------------------------------------------------------------------------------------------------------------+
     open class func postSIMBAData(payload: GetRegModel, completion: @escaping ((_ error: Error?) -> Void)) {
         postSIMBADataWithRequestBuilder(payload: payload).execute { (response, error) -> Void in
             completion(error);

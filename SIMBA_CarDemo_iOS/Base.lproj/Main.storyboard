@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8g3-cQ-eLJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8g3-cQ-eLJ">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1033,9 +1033,6 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="fDG-m9-Sev" kind="show" id="iCC-e2-6zz"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivh-gN-s7m">
                                 <rect key="frame" x="16" y="338" width="288" height="61"/>
@@ -1074,10 +1071,10 @@
             </objects>
             <point key="canvasLocation" x="-274" y="1004"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="bvO-be-LMP">
             <objects>
-                <viewController id="fDG-m9-Sev" sceneMemberID="viewController">
+                <viewController id="fDG-m9-Sev" customClass="DetailViewController" customModule="SIMBA_CarDemo_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gGF-yD-Dw7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1160,10 +1157,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RPm-nr-DPU"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Tvg-jW-hfF"/>
+                    <connections>
+                        <outlet property="imgName" destination="GFE-hS-tsq" id="Ig0-JM-5lK"/>
+                        <outlet property="imgSize" destination="1yQ-oE-oSN" id="XSH-wA-jIL"/>
+                        <outlet property="imgView" destination="y6Z-xt-o9P" id="2cK-xK-S6S"/>
+                        <outlet property="ipfs" destination="NZC-dz-jSj" id="Oce-BO-M4J"/>
+                        <outlet property="make" destination="hHg-pN-5cN" id="95l-pu-K4i"/>
+                        <outlet property="model" destination="MKz-wB-6RW" id="qQl-qO-5TY"/>
+                        <outlet property="vin" destination="PPS-Kq-zFJ" id="DqA-Hh-zZk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqr-an-nSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-277.5" y="1737.6760563380283"/>
+            <point key="canvasLocation" x="1303" y="1004"/>
         </scene>
         <!--Get Registration-->
         <scene sceneID="ixX-AA-l25">
@@ -1174,36 +1181,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SIMBADataCell" rowHeight="125" id="0bw-8V-pXK" customClass="SIMBADataCell" customModule="SIMBA_CarDemo_iOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SIMBADataCell" rowHeight="125" id="0bw-8V-pXK" customClass="SIMBADataCell" customModule="SIMBA_CarDemo_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0bw-8V-pXK" id="dFp-3z-jL4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="124.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="124.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs3-e2-CCc">
-                                            <rect key="frame" x="247" y="11" width="57" height="21"/>
+                                            <rect key="frame" x="219" y="11" width="51" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b33-ep-8b3">
-                                            <rect key="frame" x="16" y="11" width="223" height="21"/>
+                                            <rect key="frame" x="16" y="11" width="198" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Model:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqs-bF-A4J">
-                                            <rect key="frame" x="16" y="40" width="288" height="21"/>
+                                            <rect key="frame" x="16" y="40" width="256" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VIN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dj0-Yk-gPu">
-                                            <rect key="frame" x="16" y="69" width="288" height="21"/>
+                                            <rect key="frame" x="16" y="69" width="256" height="21"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1216,6 +1223,7 @@
                                     <outlet property="MakeLabel" destination="b33-ep-8b3" id="AG0-L4-cpt"/>
                                     <outlet property="ModelLabel" destination="Iqs-bF-A4J" id="VTH-Kt-iBj"/>
                                     <outlet property="VinLabel" destination="dj0-Yk-gPu" id="07M-v9-npq"/>
+                                    <segue destination="fDG-m9-Sev" kind="push" id="hqP-uR-1mP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
