@@ -17,6 +17,7 @@ private var managerStore: [String: Alamofire.SessionManager] = [:]
 
 open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
     required public init(method: String, URLString: String, parameters: [String : Any]?, isBody: Bool) {
+        print("alamo fire implementations")
         super.init(method: method, URLString: URLString, parameters: parameters, isBody: isBody)
     }
 

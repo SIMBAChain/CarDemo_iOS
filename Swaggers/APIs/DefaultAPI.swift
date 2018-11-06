@@ -105,20 +105,23 @@ open class DefaultAPI: APIBase {
     //+-----------------------------------------------------------------------------------------------------------------+
     //+-------------------------------------------------POST DATA-------------------------------------------------------+
     //+-----------------------------------------------------------------------------------------------------------------+
-    open class func postSIMBAData(payload: GetRegModel, completion: @escaping ((_ error: Error?) -> Void)) {
+    open class func postSIMBAData(payload: PostRegModel, completion: @escaping ((_ error: Error?) -> Void)) {
+     
         postSIMBADataWithRequestBuilder(payload: payload).execute { (response, error) -> Void in
             completion(error);
         }
     }
     
     
-    open class func postSIMBADataWithRequestBuilder(payload: GetRegModel) -> RequestBuilder<Void> {
-        let path = "/audit"//change to audit when ready to test POSTs
+    open class func postSIMBADataWithRequestBuilder(payload: PostRegModel) -> RequestBuilder<Void> {
+      
+        let path = "/v1/CarDemoiOS/registerCar"//change to audit when ready to test POSTs
         let URLString = SwaggerClientAPI.basePath + path
+       
         let parameters = payload.encodeToJSON() as? [String:AnyObject]
-        
+       
         let convertedParameters = APIHelper.convertBoolToString(parameters)
-        
+     
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
         
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: true)

@@ -20,6 +20,7 @@ class DetailViewController: UIViewController
     @IBOutlet  var imgSize: UILabel!
     @IBOutlet  var imgView: UIImageView!
     var dict : NSDictionary!
+    var currentRaw = [:] as! NSDictionary
     //variables
     let mainVC = ViewController()
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
@@ -34,20 +35,17 @@ class DetailViewController: UIViewController
     {
         print("DETAIL VIEW")
         print(dict)
-        let currentpayload = dict["payload"] as! NSDictionary
-        let currentinputs = currentpayload["inputs"] as! NSDictionary
-        make.text = (currentinputs["Make"] as! String)
-        model.text = (currentinputs["Model"] as! String)
-        vin.text = (currentinputs["VIN"] as! String)
+        let currentPayload = dict["payload"] as! NSDictionary
+        let currentInputs = currentPayload["inputs"] as! NSDictionary
+         self.currentRaw = currentPayload["raw"] as! NSDictionary
+        make.text = (currentInputs["Make"] as! String)
+        model.text = (currentInputs["Model"] as! String)
+        vin.text = (currentInputs["VIN"] as! String)
         //getting the image
         let id = dict["id"] as! String
         DefaultAPI.getSIMBADataImage(txn_id: id) { (GetRegModel, error) in
-            print("defaultapi.getsimbadata")
-            if let SIMBAData = GetRegModel{
-                print("SIMBA DATA")
-                print(SIMBAData.first!.encodeToJSON())
-                
-            }
+            
+          
             if GetRegModel != nil
             {
                 self.ipfs.text = GetRegModel?.first?.bundle_hash
@@ -71,7 +69,24 @@ class DetailViewController: UIViewController
         
     }
 
- 
+    @IBAction func TranInfo()
+    {
+        let alertMessage = "Transaction Hash:" + String(currentRaw["data"] as! String) + "\nTransaction From:" + String(currentRaw["from"] as! String)
+        let alertMessage2 = "\nTransaction To:" + String(currentRaw["to"] as! String) + "\nTransaction Status:" + String(dict["status"] as! String) + "\nGas Used:" + String(currentRaw["gas"] as! Double)
+        let alertVC = UIAlertController(
+            title: "Transaction Information",
+            message: alertMessage + alertMessage2 ,
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
+    }
     
 
     

@@ -46,13 +46,18 @@ open class RequestBuilder<T> {
         self.URLString = URLString
         self.parameters = parameters
         self.isBody = isBody
-        
+        print("APIS.swift")
+        print(self.method)
+        print(self.URLString)
+        print(self.parameters)
+        print(self.isBody)
         addHeaders(SwaggerClientAPI.customHeaders)
     }
     
     open func addHeaders(_ aHeaders:[String:String]) {
         for (header, value) in aHeaders {
             headers[header] = value
+           
         }
     }
     
@@ -61,6 +66,7 @@ open class RequestBuilder<T> {
     public func addHeader(name: String, value: String) -> Self {
         if !value.isEmpty {
             headers[name] = value
+            
         }
         return self
     }

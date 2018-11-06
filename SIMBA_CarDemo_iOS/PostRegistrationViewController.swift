@@ -8,15 +8,49 @@
 
 import Foundation
 import UIKit
-
+import CoreData
 class PostRegistrationViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    @IBOutlet var Image:UIImageView!
-    
+    @IBOutlet var image:UIImageView!
+    @IBOutlet var make:UITextField!
+    @IBOutlet var model:UITextField!
+    @IBOutlet var vin:UITextField!
     
     let imagePickerController = UIImagePickerController()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var address:String!
     
-
+    override func viewDidAppear(_ animated: Bool)
+     {
+        //get adrress for the purpose of signing transaction
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
+        request.returnsObjectsAsFaults = false
+        do {
+            let context = appDelegate.persistentContainer.viewContext
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                print("set dat address")
+                address = data.value(forKey: "address") as? String
+                
+            }
+            
+        } catch {
+            
+            print("Failed")
+        }
+    }
+    
+    func ResignResponders()
+    {
+        make.resignFirstResponder()
+        model.resignFirstResponder()
+        vin.resignFirstResponder()
+    }
+    
+    @IBAction func ResignButton()
+    {
+    ResignResponders()
+    }
     
     func noCamera(){
         let alertVC = UIAlertController(
@@ -37,6 +71,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
     
     @IBAction func AddImage()
     {
+        ResignResponders()
     let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
     
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
@@ -45,6 +80,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
                 self.imagePickerController.sourceType = UIImagePickerController.SourceType.camera
                 self.imagePickerController.cameraCaptureMode = .photo
                 self.imagePickerController.modalPresentationStyle = .fullScreen
+                self.imagePickerController.delegate = self
                 self.present(self.imagePickerController,animated: true,completion: nil)
             } else {
                 self.noCamera()
@@ -76,9 +112,26 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
         }
         
         // Set photoImageView to display the selected image.
-        Image.image = selectedImage
+        image.image = selectedImage
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    //POSTING
+    @IBAction func Post()
+    {
+        let postData = PostRegModel()
+        postData.make = make.text
+        postData.model = model.text
+        postData.vin = vin.text
+        postData.from = address!
+       
+        
+        DefaultAPI.postSIMBAData(payload: postData) { (Error) in
+            print(Error as Any)
+        }
     }
 }

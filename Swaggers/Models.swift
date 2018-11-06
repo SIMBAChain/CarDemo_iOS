@@ -15,6 +15,7 @@ public enum ErrorResponse : Error {
 }
 
 open class Response<T> {
+    
     public let statusCode: Int
     public let header: [String: String]
     public let body: T?
@@ -28,6 +29,8 @@ open class Response<T> {
     public convenience init(response: HTTPURLResponse, body: T?) {
         let rawHeader = response.allHeaderFields
         var header = [String:String]()
+        print("HEADER HEADER HEADER HEADER")
+        print(header)
         for (key, value) in rawHeader {
             header[key as! String] = value as? String
         }
@@ -205,7 +208,38 @@ class Decoders {
             print("GetRegModelDecoder")
             return instance
         }
+       
+        // Decoder for [Post]
         
+        Decoders.addDecoder(clazz: [PostRegModel].self) { (source: AnyObject) -> [PostRegModel] in
+            print("[GetRegModelDecoder]")
+            print(source)
+            return Decoders.decode(clazz: [PostRegModel].self, source: source)
+        }
+        
+        // Decoder for Post
+        Decoders.addDecoder(clazz: PostRegModel.self) { (source: AnyObject) -> PostRegModel in
+            print("GetRegModelDecoder")
+            
+            let sourceDictionary = source as! [AnyHashable: Any]
+            // print(sourceDictionary)
+            let instance = PostRegModel()
+            //-------------------------------------------------------
+            //--this is where the items are grabed from the backend--
+            //-------------------------------------------------------
+            let payload = sourceDictionary["payload"] as! NSDictionary
+            let inputs = payload["inputs"] as! NSDictionary
+            let raw = payload["raw"] as! NSDictionary
+            instance.make = (inputs["Make"] as! String)
+            instance.model = (inputs["Model"] as! String)
+            instance.vin = (inputs["VIN"] as! String)
+            instance.from = (raw["from"] as! String)
+            instance.car = (inputs["car"] as! String)
+            instance.assetId = inputs["assetId"]
+            instance.apiKey = "ec74fd770e3ef3d5be469bdb11db840ec4898cbd756cb65583a8f403ca71d91f"
+            print("GetRegModelDecoder")
+            return instance
+        }
         
         
     }()
