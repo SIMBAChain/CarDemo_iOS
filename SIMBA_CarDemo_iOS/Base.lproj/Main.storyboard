@@ -1241,7 +1241,7 @@
                                     <outlet property="MakeLabel" destination="b33-ep-8b3" id="AG0-L4-cpt"/>
                                     <outlet property="ModelLabel" destination="Iqs-bF-A4J" id="VTH-Kt-iBj"/>
                                     <outlet property="VinLabel" destination="dj0-Yk-gPu" id="07M-v9-npq"/>
-                                    <segue destination="fDG-m9-Sev" kind="push" id="hqP-uR-1mP"/>
+                                    <segue destination="fDG-m9-Sev" kind="show" id="hqP-uR-1mP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

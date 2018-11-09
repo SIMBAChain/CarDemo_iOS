@@ -29,8 +29,7 @@ open class Response<T> {
     public convenience init(response: HTTPURLResponse, body: T?) {
         let rawHeader = response.allHeaderFields
         var header = [String:String]()
-        print("HEADER HEADER HEADER HEADER")
-        print(header)
+    
         for (key, value) in rawHeader {
             header[key as! String] = value as? String
         }
