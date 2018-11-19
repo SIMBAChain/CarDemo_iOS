@@ -38,22 +38,35 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         managerStore[managerId] = manager
 
         let encoding:ParameterEncoding = isBody ? JSONEncoding() : URLEncoding()
-
+        print("Encoding AlamofireImplementations")
+        print(encoding)
         let xMethod = Alamofire.HTTPMethod(rawValue: method)
         let fileKeys = parameters == nil ? [] : parameters!.filter { $1 is NSURL }
                                                            .map { $0.0 }
-
+        
+      
+        print("File Key")
+        print(fileKeys)
+        print("parameters in alamofire implementations")
+        print(parameters)
+        
         if fileKeys.count > 0 {
+       // if method == "POST" {
+            print("getting ready 4 form data")
             manager.upload(multipartFormData: { mpForm in
                 for (k, v) in self.parameters! {
                     switch v {
                     case let fileURL as URL:
+                        print("URL")
                         mpForm.append(fileURL, withName: k)
                         break
                     case let string as String:
+                         print("string")
+                         
                         mpForm.append(string.data(using: String.Encoding.utf8)!, withName: k)
                         break
                     case let number as NSNumber:
+                        print("NSNUMBER")
                         mpForm.append(number.stringValue.data(using: String.Encoding.utf8)!, withName: k)
                         break
                     default:
@@ -61,19 +74,30 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                         break
                     }
                 }
-                }, to: URLString, method: xMethod!, headers: nil, encodingCompletion: { encodingResult in
+                }, to: URLString, method: xMethod!, headers: self.headers, encodingCompletion: { encodingResult in
                 switch encodingResult {
+                
                 case .success(let upload, _, _):
                     if let onProgressReady = self.onProgressReady {
+                     print("on progress ready")
                         onProgressReady(upload.progress)
                     }
-                    self.processRequest(request: upload, managerId, completion)
+                   print("success")
+                   print(request)
+                   print(upload)
+                    
+                   self.processRequest(request: upload, managerId, completion)
                 case .failure(let encodingError):
                     completion(nil, ErrorResponse.Error(415, nil, encodingError))
                 }
             })
+            
         } else {
+           
             let request = manager.request(URLString, method: xMethod!, parameters: parameters, encoding: encoding)
+            print("else else else")
+            print(request)
+            print(parameters)
             if let onProgressReady = self.onProgressReady {
                 onProgressReady(request.progress)
             }
@@ -83,6 +107,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
     }
 
     private func processRequest(request: DataRequest, _ managerId: String, _ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) {
+        print("processRequest")
         if let credential = self.credential {
             request.authenticate(usingCredential: credential)
         }
@@ -97,7 +122,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         case is String.Type:
             validatedRequest.responseString(completionHandler: { (stringResponse) in
                 cleanupRequest()
-
+                print("string.type")
                 if stringResponse.result.isFailure {
                     completion(
                         nil,
@@ -117,7 +142,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         case is Void.Type:
             validatedRequest.responseData(completionHandler: { (voidResponse) in
                 cleanupRequest()
-
+                print("Void.type")
                 if voidResponse.result.isFailure {
                     completion(
                         nil,
@@ -136,7 +161,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         case is Data.Type:
             validatedRequest.responseData(completionHandler: { (dataResponse) in
                 cleanupRequest()
-
+                     print("Data.type")
                 if (dataResponse.result.isFailure) {
                     completion(
                         nil,
@@ -156,7 +181,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         default:
             validatedRequest.responseJSON(options: .allowFragments) { response in
                 cleanupRequest()
-
+                 print("default")
                 if response.result.isFailure {
                     completion(nil, ErrorResponse.Error(response.response?.statusCode ?? 500, response.data, response.result.error!))
                     return
@@ -187,6 +212,8 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         for (key, value) in self.headers {
             httpHeaders[key] = value
         }
+        print("httpHeaders(alamofire implementations 220)")
+        print(httpHeaders)
         return httpHeaders
     }
 }

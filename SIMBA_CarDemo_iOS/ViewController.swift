@@ -13,7 +13,7 @@ import CoreData
 class ViewController: UIViewController {
     @IBOutlet var address: UITextField!
     @IBOutlet var addressLabel: UILabel!
-    @IBOutlet var ethBalance: UITextField!
+   // @IBOutlet var ethBalance: UITextField!
     @IBOutlet var getButton: UIButton!
     @IBOutlet var postButton: UIButton!
     @IBOutlet var createButton: UIButton!
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet var switchButton: UIButton!
     @IBOutlet var notifLabel:UILabel!
     @IBOutlet var getEth:UIButton!
-    @IBOutlet var balLabel: UILabel!
+  //  @IBOutlet var balLabel: UILabel!
     @IBOutlet var addresslabel: UILabel!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
    
@@ -60,9 +60,8 @@ class ViewController: UIViewController {
             notifLabel.isHidden = true
             address.isHidden = false
             addressLabel.isHidden = false
-            ethBalance.isHidden = false
             getEth.isHidden = false
-            balLabel.isHidden = false
+         //   balLabel.isHidden = false
             addressLabel.isHidden = false
             
         }
@@ -75,9 +74,8 @@ class ViewController: UIViewController {
             notifLabel.isHidden = false
             address.isHidden = true
             addressLabel.isHidden = true
-            ethBalance.isHidden = true
             getEth.isHidden = true
-            balLabel.isHidden = true
+         //   balLabel.isHidden = true
             addressLabel.isHidden = true
         }
         
@@ -92,7 +90,7 @@ class ViewController: UIViewController {
         let geth = Geth(configuration: configuration)
         
         // To get a balance of an address, call `getBalance`.
-        geth.getBalance(of: address.text!) { _ in 
+        geth.getBalance(of: address.text!) { _ in
         }
         
     }

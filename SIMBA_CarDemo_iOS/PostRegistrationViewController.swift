@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
+import Alamofire
 class PostRegistrationViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @IBOutlet var image:UIImageView!
@@ -19,7 +20,8 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
     let imagePickerController = UIImagePickerController()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var address:String!
-    
+    var postresponse = [String:AnyHashable]()
+    var isImage = false
     override func viewDidAppear(_ animated: Bool)
      {
         //get adrress for the purpose of signing transaction
@@ -113,7 +115,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
         
         // Set photoImageView to display the selected image.
         image.image = selectedImage
-        
+        isImage = true
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
@@ -123,15 +125,48 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
     //POSTING
     @IBAction func Post()
     {
-        let postData = PostRegModel()
-        postData.make = make.text
-        postData.model = model.text
-        postData.vin = vin.text
-        postData.from = address!
-       
-        
-        DefaultAPI.postSIMBAData(payload: postData) { (Error) in
-            print(Error as Any)
+        let uploadmake = self.make.text
+        let uploadmodel = self.model.text
+        let uploadvin = self.vin.text
+        let imgData = self.image.image!.jpegData(compressionQuality: 0.2)
+        Alamofire.upload(
+            
+            multipartFormData: { multipartFormData in
+            
+                multipartFormData.append((uploadmake! as String).data(using: String.Encoding.utf8)!, withName: "Make")
+                multipartFormData.append((uploadmodel! as String).data(using: String.Encoding.utf8)!, withName: "Model")
+                multipartFormData.append((uploadvin! as String).data(using: String.Encoding.utf8)!, withName: "VIN")
+                multipartFormData.append((self.address! as String).data(using: String.Encoding.utf8)!, withName: "from")
+                if (self.isImage == true)
+                {
+               
+                    
+                    multipartFormData.append(imgData!, withName: "file[0]", fileName: "image.png", mimeType: "image/jpeg")
+                }
+           
+                
+        },
+            to: "https://api.simbachain.com/v1/ioscardemo2/registerCar/",
+            headers:[
+                "APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"],
+            
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        debugPrint(response)
+                        print("--------------------------------RESULT RESULT RESULT RESULT-------------------------------")
+                        self.postresponse = response.result.value! as! [String : AnyHashable]
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
         }
+        )
+     //   print("TXN ID")
+       // let postRaw = postresponse["raw"] as! NSDictionary
+     //   print(postRaw["data"]!)
+        
+        
     }
 }

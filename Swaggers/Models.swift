@@ -21,12 +21,15 @@ open class Response<T> {
     public let body: T?
 
     public init(statusCode: Int, header: [String: String], body: T?) {
+        print("init (Models.swift)")
         self.statusCode = statusCode
         self.header = header
         self.body = body
+    
     }
 
     public convenience init(response: HTTPURLResponse, body: T?) {
+        print("convenience init (Models.swift)")
         let rawHeader = response.allHeaderFields
         var header = [String:String]()
     
@@ -167,15 +170,11 @@ class Decoders {
             var resultsarray: NSArray = sourceDictionary["results"] as! NSArray
             var results : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: resultsarray.firstObject as AnyObject)
             if resultsarray.count == 0 {return instance}
-                instance.count = Decoders.decode(clazz: Int32.self, source: (sourceDictionary["count"] as AnyObject?)!)
-              var payload = results["payload"] as? [String : AnyObject]
+            var payload = results["payload"] as? [String : AnyObject]
             var inputs = payload!["inputs"] as? [String : AnyObject]
             instance.results = (resultsarray  as! [NSDictionary])
-            instance.vin = inputs!["VIN"] as? String
-              instance.car = inputs!["car"] as? String
-              instance.make = inputs!["Make"] as? String
-              instance.model = inputs!["Model"] as? String
-                print("GetRegModelDecoder")
+     
+            print("GetRegModelDecoder")
             return instance
         }
         
@@ -210,15 +209,15 @@ class Decoders {
        
         // Decoder for [Post]
         
-        Decoders.addDecoder(clazz: [PostRegModel].self) { (source: AnyObject) -> [PostRegModel] in
-            print("[GetRegModelDecoder]")
+      /*  Decoders.addDecoder(clazz: [PostRegModel].self) { (source: AnyObject) -> [PostRegModel] in
+            print("[PostRegModelDecoder]")
             print(source)
             return Decoders.decode(clazz: [PostRegModel].self, source: source)
         }
         
         // Decoder for Post
         Decoders.addDecoder(clazz: PostRegModel.self) { (source: AnyObject) -> PostRegModel in
-            print("GetRegModelDecoder")
+            print("PostRegModelDecoder")
             
             let sourceDictionary = source as! [AnyHashable: Any]
             // print(sourceDictionary)
@@ -235,11 +234,11 @@ class Decoders {
             instance.from = (raw["from"] as! String)
             instance.car = (inputs["car"] as! String)
             instance.assetId = inputs["assetId"]
-            instance.apiKey = "ec74fd770e3ef3d5be469bdb11db840ec4898cbd756cb65583a8f403ca71d91f"
+           // instance.apiKey = "ec74fd770e3ef3d5be469bdb11db840ec4898cbd756cb65583a8f403ca71d91f"
             print("GetRegModelDecoder")
             return instance
         }
-        
+        */
         
     }()
 

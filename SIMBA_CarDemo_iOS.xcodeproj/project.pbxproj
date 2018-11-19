@@ -35,7 +35,6 @@
 		C9F86EDE2167FFB5003826F8 /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED52167FFB5003826F8 /* AlamofireImplementations.swift */; };
 		C9F86EDF2167FFB5003826F8 /* DefaultAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED72167FFB5003826F8 /* DefaultAPI.swift */; };
 		C9F86EE02167FFB5003826F8 /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86ED82167FFB5003826F8 /* APIs.swift */; };
-		C9F86EE12167FFB5003826F8 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDA2167FFB5003826F8 /* Dwarf.swift */; };
 		C9F86EE22167FFB5003826F8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDB2167FFB5003826F8 /* Extensions.swift */; };
 		C9F86EE32167FFB5003826F8 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EDC2167FFB5003826F8 /* Models.swift */; };
 		C9F86EEA216D38B3003826F8 /* GetRegModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F86EE9216D38B3003826F8 /* GetRegModel.swift */; };
@@ -243,7 +242,6 @@
 		C9F86ED52167FFB5003826F8 /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
 		C9F86ED72167FFB5003826F8 /* DefaultAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAPI.swift; sourceTree = "<group>"; };
 		C9F86ED82167FFB5003826F8 /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
-		C9F86EDA2167FFB5003826F8 /* Dwarf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
 		C9F86EDB2167FFB5003826F8 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C9F86EDC2167FFB5003826F8 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C9F86EE9216D38B3003826F8 /* GetRegModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRegModel.swift; sourceTree = "<group>"; };
@@ -388,7 +386,6 @@
 		C9F86ED92167FFB5003826F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C9F86EDA2167FFB5003826F8 /* Dwarf.swift */,
 				C9F86EE9216D38B3003826F8 /* GetRegModel.swift */,
 				C995E718218A413700AB1FA5 /* GetImageModel.swift */,
 				C995E747218B470600AB1FA5 /* PostRegModel.swift */,
@@ -630,7 +627,6 @@
 				C94010CA215D619C00287717 /* ImportWalletViewController.swift in Sources */,
 				C9F86EDE2167FFB5003826F8 /* AlamofireImplementations.swift in Sources */,
 				C922E6D72163AD6400BAC50D /* Wallet.xcdatamodeld in Sources */,
-				C9F86EE12167FFB5003826F8 /* Dwarf.swift in Sources */,
 				C9F86EEC216E5848003826F8 /* RegTableViewController.swift in Sources */,
 				C940102C215C072500287717 /* ViewController.swift in Sources */,
 				C940102A215C072500287717 /* AppDelegate.swift in Sources */,

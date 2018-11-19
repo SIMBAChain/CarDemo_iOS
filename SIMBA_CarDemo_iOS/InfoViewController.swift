@@ -59,14 +59,14 @@ class InfoViewController: UIViewController
     }
     @IBAction func GotoSource()
     {
-        if let url = URL(string: "https://www.rinkeby.io/#faucet") {
+        if let url = URL(string: "https://github.com/SIMBAChain/CarDemo_iOS") {
             UIApplication.shared.open(url, options: [:])
         }
         
     }
     @IBAction func GotoDocs()
     {
-        if let url = URL(string: "https://www.rinkeby.io/#faucet") {
+        if let url = URL(string: "https://cardemo-ios.readthedocs.io/en/latest/") {
             UIApplication.shared.open(url, options: [:])
         }
         

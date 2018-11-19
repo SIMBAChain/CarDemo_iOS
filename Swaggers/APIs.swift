@@ -7,10 +7,10 @@
 import Foundation
 
 open class SwaggerClientAPI {
-    public static var basePath = "https://dev.api.simbachain.com"
+    public static var basePath = "https://api.simbachain.com"
     public static var credential: URLCredential?
     //DO THE THING FOR THE AUTHORIZATION
-    public static var customHeaders: [String:String] = ["APIKEY":"ec74fd770e3ef3d5be469bdb11db840ec4898cbd756cb65583a8f403ca71d91f"]
+    public static var customHeaders: [String:String] = ["APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"]
     static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
 }
 
@@ -51,17 +51,28 @@ open class RequestBuilder<T> {
         print(self.URLString)
         print(self.parameters)
         print(self.isBody)
+        if method == "POST"
+        {
+         let   postHeader: [String:String] = ["Content-Type":"multipart/form-data"]
+            addHeaders(postHeader)
+          
+        }
         addHeaders(SwaggerClientAPI.customHeaders)
+       // let postheader2: [String:String] = ["from":"0x4c01d2810e6E38947addFD6C5A086C2F62da296B", "VIN":"12345", "car":"0x000000", "Make":"amake", "Model":"amodel", "assetId":"0x000000"]
+        //addHeaders(postheader2)
     }
     
     open func addHeaders(_ aHeaders:[String:String]) {
         for (header, value) in aHeaders {
             headers[header] = value
-           
+           print("Add Headers")
+            print(headers)
+            print(header)
+            print(value)
         }
     }
     
-    open func execute(_ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) { }
+    open func execute(_ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) {print("execute in API.swift") }
 
     public func addHeader(name: String, value: String) -> Self {
         if !value.isEmpty {
