@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 import Alamofire
+import EthereumKit
 class PostRegistrationViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     @IBOutlet var image:UIImageView!
@@ -20,6 +21,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
     let imagePickerController = UIImagePickerController()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var address:String!
+    var savedSeed:String!
     var postresponse = [String:AnyHashable]()
     var isImage = false
     override func viewDidAppear(_ animated: Bool)
@@ -33,7 +35,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
             for data in result as! [NSManagedObject] {
                 print("set dat address")
                 address = data.value(forKey: "address") as? String
-                
+                savedSeed = data.value(forKey: "seed") as? String
             }
             
         } catch {
@@ -163,9 +165,37 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
                 }
         }
         )
-     //   print("TXN ID")
-       // let postRaw = postresponse["raw"] as! NSDictionary
-     //   print(postRaw["data"]!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // change 0.5 to desired number of seconds
+            print("TXN ID")
+            let postRaw = self.postresponse["raw"] as! NSDictionary
+            print(postRaw["data"]!)
+            
+            // It generates an array of random mnemonic words. Use it for back-ups.
+            // You can specify which language to use for the sentence by second parameter.
+            
+            
+            let mnemonic = self.savedSeed.components(separatedBy: " ")
+            
+            print(mnemonic)
+            // Then generate seed data from the mnemonic sentence.
+            // You can set password for more secure seed data.
+            let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
+            
+            // Create wallet by passing seed data and which network you want to connect.
+            // for network, EthereumKit currently supports mainnet and ropsten.
+            let hdWallet = HDWallet(seed: seed, network: .mainnet)
+            
+            // Generate an address, or private key by simply calling
+            let address = try? hdWallet.address(at: 0)
+            let privKey = try? hdWallet.privateKeyHex(at: 0)
+       //     outAddress.text = address
+       //     outPrivateKey.text = "0x" + privKey!
+            let mnemonicStr = mnemonic.joined(separator: " ")
+         //   outSeed.text = mnemonicStr
+            //  outSeed.text! = mnemonic
+           
+        }
+
         
         
     }
