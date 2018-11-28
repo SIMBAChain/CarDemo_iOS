@@ -7,7 +7,7 @@
 import Foundation
 
 open class SwaggerClientAPI {
-    public static var basePath = "https://api.simbachain.com"
+    public static var basePath = "https://api.simbachain.com/v1/ioscardemo2/"
     public static var credential: URLCredential?
     //DO THE THING FOR THE AUTHORIZATION
     public static var customHeaders: [String:String] = ["APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"]

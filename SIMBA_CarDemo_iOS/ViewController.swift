@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 }
 
     override func viewDidAppear(_ animated: Bool) {
-        print("View Did Appear")
+        //checks to see if there is an address stored
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
         request.returnsObjectsAsFaults = false
         do {
@@ -49,9 +49,11 @@ class ViewController: UIViewController {
             
             print("Failed")
         }
-        //Gets balance
+        //Gets balance and if the balance is at or somehow below 0 disables the users ability to get or post
         if address.text != ""
         {
+            //Please change the API key in the URL to your own if you plan to use the app past personal usage here https://etherscan.io/apis
+            //It's free to make an account and API key but it is limited to 5 requests per second
         Alamofire.request(("https://api-rinkeby.etherscan.io/api?module=account&action=balance&address=" + address.text! + "&tag=latest&apikey=8TZXFHXHCEBNSMQZDP64NKS8R4SDHVNWSF")).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
@@ -64,6 +66,7 @@ class ViewController: UIViewController {
                 if let resultDouble = Double(resultString) {
                     if resultDouble <= 0
                     {
+                        //alerts the user to their lack of eth
                         let alertVC = UIAlertController(
                             title: "No Ethereum",
                             message: "To Post or Get you need ETH" ,
@@ -75,7 +78,7 @@ class ViewController: UIViewController {
                         alertVC.addAction(okAction)
                         self.present(alertVC,animated: true,completion: nil)
                         
-                        
+                        //hides the UI elements that needs to be hidden and returns
                         self.ethBalance.text = "0"
                         self.switchButton.isHidden = false
                         self.getButton.isHidden = true
@@ -91,7 +94,7 @@ class ViewController: UIViewController {
                         self.addressLabel.isHidden = false
                         return
                     }
-                    self.ethBalance.text = String(resultDouble / 1000000000000000000)
+                    self.ethBalance.text = String(resultDouble / 1000000000000000000) //The balance is returned as Wei which is 1/1000000000000000000 that is the purpose behind the division
                 }
                 
                 

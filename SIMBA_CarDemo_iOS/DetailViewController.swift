@@ -20,7 +20,7 @@ class DetailViewController: UIViewController
     @IBOutlet  var imgSize: UILabel!
     @IBOutlet  var imgView: UIImageView!
     var dict : NSDictionary!
-    var currentRaw = [:] as! NSDictionary
+    var currentRaw = [:] as NSDictionary
     //variables
     let mainVC = ViewController()
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate

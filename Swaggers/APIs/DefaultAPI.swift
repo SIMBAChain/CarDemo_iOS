@@ -29,7 +29,7 @@ open class DefaultAPI: APIBase {
     //GET DATA WITH REQUEST BUILDER
     open class func getSIMBADataWithRequestBuilder() -> RequestBuilder<[GetRegModel]> {
         print("getSIMBADataWithRequestBuilderEXECUTED")
-        let path = "/v1/ioscardemo2/registerCar"
+        let path = "registerCar"
         let URLString = SwaggerClientAPI.basePath + path
         
         let nillableParameters: [String:Any?] = [:]
@@ -59,7 +59,7 @@ open class DefaultAPI: APIBase {
     //GET FILTERED DATA WITH REQEUST BUILDER
     open class func getFilteredSIMBADataWithRequestBuilder(filter:String) -> RequestBuilder<[GetRegModel]> {
         print("getSIMBADataWithRequestBuilderEXECUTED")
-        let path = "/v1/ioscardemo2/registerCar?Make_contains=" + filter
+        let path = "registerCar?Make_contains=" + filter
         let URLString = SwaggerClientAPI.basePath + path
         
         let nillableParameters: [String:Any?] = [:]
@@ -89,7 +89,7 @@ open class DefaultAPI: APIBase {
     //GET IMAGE DATA WITH REQEUST BUILDER
     open class func getSIMBADataImageWithRequestBuilder(txn_id:String) -> RequestBuilder<[GetImageModel]> {
         print("getSIMBADataWithRequestBuilderEXECUTED")
-        let path = "/v1/ioscardemo2/transaction/" + txn_id + "/bundle/"
+        let path = "transaction/" + txn_id + "/bundle/"
         let URLString = SwaggerClientAPI.basePath + path
         
         let nillableParameters: [String:Any?] = [:]
@@ -120,10 +120,11 @@ open class DefaultAPI: APIBase {
         }
     }
     
+    //POSTING IS NOT DONE HERE IT IS DONE THROUGH ALAMOFIRE IN THE POST VIEW
     
     open class func postSIMBADataWithRequestBuilder(payload: PostRegModel) -> RequestBuilder<Void> {
       
-        let path = "/v1/ioscardemo2/registerCar"//change to audit when ready to test POSTs
+        let path = "registerCar"//change to audit when ready to test POSTs
         let URLString = SwaggerClientAPI.basePath + path
        
        // let parameters = payload.encodeToJSON() as? [String:AnyObject]

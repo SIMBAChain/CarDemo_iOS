@@ -84,22 +84,7 @@ class GenerateWalletViewController: UIViewController {
         newWallet.setValue(pass.text, forKey: "password")
         newWallet.setValue(outPrivateKey.text, forKey: "privatekey")
         newWallet.setValue(outSeed.text, forKey: "seed")
-        print("gonna encrypt adkjjdashgdsjghkgksfjhgjsdkghfskghk;jldjfkghf;slkgjbhjfhkhbl")
-        do {
-            let aes = try AES(key: "keykeykeykeykeyk", iv: "drowssapdrowssap") // aes128
-            let ciphertext = try aes.encrypt(Array("Nullam quis risus eget urna mollis ornare vel eu leo.".utf8))
-            print(ciphertext)
-            stuff = ciphertext
-        } catch { }
-        
-        do {
-            let aes = try AES(key: "keykeykeykeykeyk", iv: "drowssapdrowssap") // aes128
-            let ciphertext = try aes.decrypt(stuff as! Array<UInt8>)
-            print(ciphertext)
-        } catch { }
-        
-        
-        
+     
         do {
             print("trying to save")
             try context.save()

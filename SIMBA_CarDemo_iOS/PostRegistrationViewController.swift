@@ -158,9 +158,9 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
                 case .success(let upload, _, _):
                     upload.responseJSON { response in
                         debugPrint(response)
-                        print("--------------------------------RESULT RESULT RESULT RESULT-------------------------------")
+                        print("--------------------------------^^^RESULT^^^--------------------------------")
                         self.postresponse = response.result.value! as! [String : AnyHashable]
-                        print(self.postresponse)
+                        
                         self.SignTransaction(response: response.result.value! as! NSDictionary /*[String : AnyHashable]*/)
                     }
                 case .failure(let encodingError):
@@ -175,8 +175,6 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
     }
     func SignTransaction(response:NSDictionary)
     {
-        print("TXN ID")
-        print(response)
     //gets the data needed from the model and sets it to the "data" variable
         let postpayload = response["payload"] as! [String : AnyHashable]
         let postRaw = postpayload["raw"] as! [String : AnyHashable]
@@ -189,8 +187,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
         
     //sign the data with ethereumkit hdwallet.sign
         //NOTE: hdwallet.sign has 3 versions the hex string version is what's used below
-        print("SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN")
-     
+        print("SIGNING")
        if let signedTransaction = try? hdWallet.sign(hex: data, withPrivateKeyAtIndex: 0)
        {
         print("signed Transaction")
