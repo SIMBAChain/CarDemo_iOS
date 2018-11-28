@@ -26,8 +26,6 @@
 		AE0057362053A510007AA468 /* PrivateKeyAndPublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0057352053A510007AA468 /* PrivateKeyAndPublicKeyTests.swift */; };
 		AE0057382053A5E4007AA468 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0057372053A5E4007AA468 /* WalletTests.swift */; };
 		AE1270E920E8B1CA00487956 /* HDPublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1270E820E8B1CA00487956 /* HDPublicKeyTests.swift */; };
-		AE14A610206F5555003A63FF /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE14A60A206F552D003A63FF /* CryptoSwift.framework */; };
-		AE14A611206F5555003A63FF /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AE14A60A206F552D003A63FF /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AE14A6242070A98D003A63FF /* English.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE14A6232070A98D003A63FF /* English.swift */; };
 		AE14A6262070A9AE003A63FF /* Japanese.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE14A6252070A9AE003A63FF /* Japanese.swift */; };
 		AE1A4B8A206558B300346BA2 /* JSONRPCError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1A4B89206558B300346BA2 /* JSONRPCError.swift */; };
@@ -85,10 +83,8 @@
 		AEBA90FD1FFA2C6A003EA2BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA90FB1FFA2C6A003EA2BA /* LaunchScreen.storyboard */; };
 		AEBA91041FFA2C74003EA2BA /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA90D51FFA21ED003EA2BA /* EthereumKit.framework */; };
 		AEBA91051FFA2C74003EA2BA /* EthereumKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEBA90D51FFA21ED003EA2BA /* EthereumKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AEDC134920B9133F00C3B9E8 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */; };
-		AEDC134A20B9133F00C3B9E8 /* CryptoEthereumSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C99646E12189F82D0071C38C /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99646E02189F82D0071C38C /* CryptoEthereumSwift.framework */; };
-		C99646E32189F83E0071C38C /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99646E22189F83E0071C38C /* CryptoSwift.framework */; };
+		C014FDB4219A28AB00466668 /* Geth+Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014FDB3219A28AB00466668 /* Geth+Contract.swift */; };
+		C014FDB6219A307900466668 /* ERC20+Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014FDB5219A307900466668 /* ERC20+Contract.swift */; };
 		D77FB336203DE3D0003213DB /* SMP+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77FB335203DE3D0003213DB /* SMP+Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,8 +119,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AEDC134A20B9133F00C3B9E8 /* CryptoEthereumSwift.framework in Embed Frameworks */,
-				AE14A611206F5555003A63FF /* CryptoSwift.framework in Embed Frameworks */,
 				AEBA91051FFA2C74003EA2BA /* EthereumKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -152,7 +146,6 @@
 		AE0057352053A510007AA468 /* PrivateKeyAndPublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyAndPublicKeyTests.swift; sourceTree = "<group>"; };
 		AE0057372053A5E4007AA468 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
 		AE1270E820E8B1CA00487956 /* HDPublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HDPublicKeyTests.swift; sourceTree = "<group>"; };
-		AE14A60A206F552D003A63FF /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		AE14A6232070A98D003A63FF /* English.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = English.swift; sourceTree = "<group>"; };
 		AE14A6252070A9AE003A63FF /* Japanese.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Japanese.swift; sourceTree = "<group>"; };
 		AE1A4B89206558B300346BA2 /* JSONRPCError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRPCError.swift; sourceTree = "<group>"; };
@@ -213,10 +206,8 @@
 		AEBA90F91FFA2C6A003EA2BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEBA90FC1FFA2C6A003EA2BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEBA90FE1FFA2C6A003EA2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = Carthage/Build/iOS/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
-		C99646DE2189F8290071C38C /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C99646E02189F82D0071C38C /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoEthereumSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C99646E22189F83E0071C38C /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C014FDB3219A28AB00466668 /* Geth+Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geth+Contract.swift"; sourceTree = "<group>"; };
+		C014FDB5219A307900466668 /* ERC20+Contract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ERC20+Contract.swift"; sourceTree = "<group>"; };
 		D77FB335203DE3D0003213DB /* SMP+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMP+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,8 +224,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C99646E32189F83E0071C38C /* CryptoSwift.framework in Frameworks */,
-				C99646E12189F82D0071C38C /* CryptoEthereumSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,8 +231,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEDC134920B9133F00C3B9E8 /* CryptoEthereumSwift.framework in Frameworks */,
-				AE14A610206F5555003A63FF /* CryptoSwift.framework in Frameworks */,
 				AEBA91041FFA2C74003EA2BA /* EthereumKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,8 +250,6 @@
 		AE14A607206F550F003A63FF /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
-				AEDC134720B90D4100C3B9E8 /* CryptoEthereumSwift.framework */,
-				AE14A60A206F552D003A63FF /* CryptoSwift.framework */,
 			);
 			name = Dependency;
 			sourceTree = "<group>";
@@ -287,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				AE8387DB20374A5600FAC88F /* Geth.swift */,
+				C014FDB3219A28AB00466668 /* Geth+Contract.swift */,
 				AE8387F9203B179700FAC88F /* HTTPClient */,
 				AE1A4B8B2065592700346BA2 /* JSONRPC */,
 				AE8387F8203B167000FAC88F /* Request */,
@@ -345,6 +331,7 @@
 				AE005729205390E1007AA468 /* EthereumKitError.swift */,
 				AE61467E2087501000A9E77A /* Result.swift */,
 				AE3EB60220AC8D3600D61CE6 /* ERC20.swift */,
+				C014FDB5219A307900466668 /* ERC20+Contract.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -425,7 +412,6 @@
 				AEBA90F11FFA2C6A003EA2BA /* Example */,
 				AE14A607206F550F003A63FF /* Dependency */,
 				AEBA90D61FFA21ED003EA2BA /* Products */,
-				C99646DD2189F8290071C38C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -466,16 +452,6 @@
 				AEBA90FE1FFA2C6A003EA2BA /* Info.plist */,
 			);
 			path = Example;
-			sourceTree = "<group>";
-		};
-		C99646DD2189F8290071C38C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C99646E22189F83E0071C38C /* CryptoSwift.framework */,
-				C99646E02189F82D0071C38C /* CryptoEthereumSwift.framework */,
-				C99646DE2189F8290071C38C /* CryptoSwift.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -693,6 +669,7 @@
 				AE614679208744E600A9E77A /* HTTPClientType.swift in Sources */,
 				AE00571E2049482A007AA468 /* EIP155Signer.swift in Sources */,
 				AE295DED206554E500F774A6 /* BatchElement.swift in Sources */,
+				C014FDB6219A307900466668 /* ERC20+Contract.swift in Sources */,
 				AE8291A62018ADAF0047E0F0 /* WordList.swift in Sources */,
 				AE61467D20874FE700A9E77A /* Cancellable.swift in Sources */,
 				AE0057182042E4CF007AA468 /* RLP.swift in Sources */,
@@ -702,6 +679,7 @@
 				AE00572A205390E1007AA468 /* EthereumKitError.swift in Sources */,
 				AE8291A42018ADAF0047E0F0 /* Mnemonic.swift in Sources */,
 				AE295DEF2065551C00F774A6 /* BatchFactory.swift in Sources */,
+				C014FDB4219A28AB00466668 /* Geth+Contract.swift in Sources */,
 				AE8387F7203B131A00FAC88F /* Etherscan.swift in Sources */,
 				AEA346CB209CD59C00E53536 /* URLEncodedSerialization.swift in Sources */,
 				AE8387E62037F55E00FAC88F /* Balance.swift in Sources */,

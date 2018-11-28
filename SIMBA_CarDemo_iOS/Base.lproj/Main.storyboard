@@ -544,6 +544,20 @@
                                     <action selector="GetETH" destination="wpX-OA-AaS" eventType="touchUpInside" id="0NF-P8-6uK"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Balance:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-if-7LW">
+                                <rect key="frame" x="16" y="339" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ue-hy-Htu">
+                                <rect key="frame" x="103" y="335" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dB2-bd-tPa"/>
@@ -564,7 +578,9 @@
                         <outlet property="address" destination="Mln-hn-fgs" id="dAv-jG-UM9"/>
                         <outlet property="addressLabel" destination="BkI-wx-58U" id="NJf-Fe-4b7"/>
                         <outlet property="addresslabel" destination="BkI-wx-58U" id="X2Q-Pa-Y1q"/>
+                        <outlet property="balLabel" destination="Ioa-if-7LW" id="J9E-h9-T5q"/>
                         <outlet property="createButton" destination="JQP-2V-e1Z" id="1on-2p-lPo"/>
+                        <outlet property="ethBalance" destination="7Ue-hy-Htu" id="3s5-uq-7rW"/>
                         <outlet property="getButton" destination="zJt-jL-1g9" id="H5N-YL-pZv"/>
                         <outlet property="getEth" destination="llH-f6-lZ4" id="SA5-DA-O6f"/>
                         <outlet property="importButton" destination="U6B-6c-6JS" id="8Mc-14-rA2"/>
@@ -575,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAN-ma-1op" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-966" y="202"/>
+            <point key="canvasLocation" x="-967.5" y="201.7605633802817"/>
         </scene>
         <!--Import-->
         <scene sceneID="tne-QT-ifu">

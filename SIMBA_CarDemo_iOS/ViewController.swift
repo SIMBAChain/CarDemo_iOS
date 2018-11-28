@@ -9,11 +9,11 @@
 import UIKit
 import EthereumKit
 import CoreData
-
+import Alamofire
 class ViewController: UIViewController {
     @IBOutlet var address: UITextField!
     @IBOutlet var addressLabel: UILabel!
-   // @IBOutlet var ethBalance: UITextField!
+    @IBOutlet var ethBalance: UITextField!
     @IBOutlet var getButton: UIButton!
     @IBOutlet var postButton: UIButton!
     @IBOutlet var createButton: UIButton!
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet var switchButton: UIButton!
     @IBOutlet var notifLabel:UILabel!
     @IBOutlet var getEth:UIButton!
-  //  @IBOutlet var balLabel: UILabel!
+    @IBOutlet var balLabel: UILabel!
     @IBOutlet var addresslabel: UILabel!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
    
@@ -49,7 +49,60 @@ class ViewController: UIViewController {
             
             print("Failed")
         }
-        
+        //Gets balance
+        if address.text != ""
+        {
+        Alamofire.request(("https://api-rinkeby.etherscan.io/api?module=account&action=balance&address=" + address.text! + "&tag=latest&apikey=8TZXFHXHCEBNSMQZDP64NKS8R4SDHVNWSF")).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = (response.result.value) {
+                print("JSON: \(json)") // serialized json response
+                let dict = json as! NSDictionary
+                let resultString = dict["result"] as! String
+                if let resultDouble = Double(resultString) {
+                    if resultDouble <= 0
+                    {
+                        let alertVC = UIAlertController(
+                            title: "No Ethereum",
+                            message: "To Post or Get you need ETH" ,
+                            preferredStyle: .alert)
+                        let okAction = UIAlertAction(
+                            title: "OK",
+                            style:.default,
+                            handler: nil)
+                        alertVC.addAction(okAction)
+                        self.present(alertVC,animated: true,completion: nil)
+                        
+                        
+                        self.ethBalance.text = "0"
+                        self.switchButton.isHidden = false
+                        self.getButton.isHidden = true
+                        self.postButton.isHidden = true
+                        self.createButton.isHidden = true
+                        self.importButton.isHidden = true
+                        self.notifLabel.isHidden = true
+                        self.address.isHidden = false
+                        self.addressLabel.isHidden = false
+                        self.getEth.isHidden = false
+                        self.balLabel.isHidden = false
+                        self.ethBalance.isHidden = false
+                        self.addressLabel.isHidden = false
+                        return
+                    }
+                    self.ethBalance.text = String(resultDouble / 1000000000000000000)
+                }
+                
+                
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+            
+        }
+        }
         if address.text != ""
         {
             switchButton.isHidden = false
@@ -61,9 +114,9 @@ class ViewController: UIViewController {
             address.isHidden = false
             addressLabel.isHidden = false
             getEth.isHidden = false
-         //   balLabel.isHidden = false
+            balLabel.isHidden = false
+            ethBalance.isHidden = false
             addressLabel.isHidden = false
-            
         }
         else{
             switchButton.isHidden = true
@@ -75,22 +128,9 @@ class ViewController: UIViewController {
             address.isHidden = true
             addressLabel.isHidden = true
             getEth.isHidden = true
-         //   balLabel.isHidden = true
+            balLabel.isHidden = true
+            ethBalance.isHidden = true
             addressLabel.isHidden = true
-        }
-        
-        
-        let configuration = Configuration(
-            network: .private(chainID: 4, testUse: false),
-            nodeEndpoint: "http://api-rinkeby.etherscan.io/api?",
-            etherscanAPIKey: "8TZXFHXHCEBNSMQZDP64NKS8R4SDHVNWSF",
-            debugPrints: true
-        )
-        
-        let geth = Geth(configuration: configuration)
-        
-        // To get a balance of an address, call `getBalance`.
-        geth.getBalance(of: address.text!) { _ in
         }
         
     }

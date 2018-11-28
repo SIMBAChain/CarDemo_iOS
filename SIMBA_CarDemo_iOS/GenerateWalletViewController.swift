@@ -67,7 +67,7 @@ class GenerateWalletViewController: UIViewController {
             
             // Generate an address, or private key by simply calling
             let address = try? hdWallet.address(at: 0)
-            let privKey = try? hdWallet.privateKeyHex(at: 0)
+        let privKey = try? hdWallet.privateKeyHex(at: 0)
             outAddress.text = address
             outPrivateKey.text = "0x" + privKey!
         let mnemonicStr = mnemonic.joined(separator: " ")

@@ -5,7 +5,6 @@
 //  Created by Steven Peregrine on 10/18/18.
 //  Copyright © 2018 ITAMCO. All rights reserved.
 //
-
 import Foundation
 import UIKit
 import CoreData
@@ -22,6 +21,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var address:String!
     var savedSeed:String!
+    var savedPrivateKey:String!
     var postresponse = [String:AnyHashable]()
     var isImage = false
     override func viewDidAppear(_ animated: Bool)
@@ -36,6 +36,7 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
                 print("set dat address")
                 address = data.value(forKey: "address") as? String
                 savedSeed = data.value(forKey: "seed") as? String
+                savedPrivateKey = data.value(forKey: "privatekey") as? String
             }
             
         } catch {
@@ -159,44 +160,53 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
                         debugPrint(response)
                         print("--------------------------------RESULT RESULT RESULT RESULT-------------------------------")
                         self.postresponse = response.result.value! as! [String : AnyHashable]
+                        print(self.postresponse)
+                        self.SignTransaction(response: response.result.value! as! NSDictionary /*[String : AnyHashable]*/)
                     }
                 case .failure(let encodingError):
                     print(encodingError)
                 }
         }
         )
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // change 0.5 to desired number of seconds
-            print("TXN ID")
-            let postRaw = self.postresponse["raw"] as! NSDictionary
-            print(postRaw["data"]!)
-            
-            // It generates an array of random mnemonic words. Use it for back-ups.
-            // You can specify which language to use for the sentence by second parameter.
-            
-            
-            let mnemonic = self.savedSeed.components(separatedBy: " ")
-            
-            print(mnemonic)
-            // Then generate seed data from the mnemonic sentence.
-            // You can set password for more secure seed data.
-            let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
-            
-            // Create wallet by passing seed data and which network you want to connect.
-            // for network, EthereumKit currently supports mainnet and ropsten.
-            let hdWallet = HDWallet(seed: seed, network: .mainnet)
-            
-            // Generate an address, or private key by simply calling
-            let address = try? hdWallet.address(at: 0)
-            let privKey = try? hdWallet.privateKeyHex(at: 0)
-       //     outAddress.text = address
-       //     outPrivateKey.text = "0x" + privKey!
-            let mnemonicStr = mnemonic.joined(separator: " ")
-         //   outSeed.text = mnemonicStr
-            //  outSeed.text! = mnemonic
-           
-        }
+
 
         
         
+    }
+    func SignTransaction(response:NSDictionary)
+    {
+        print("TXN ID")
+        print(response)
+    //gets the data needed from the model and sets it to the "data" variable
+        let postpayload = response["payload"] as! [String : AnyHashable]
+        let postRaw = postpayload["raw"] as! [String : AnyHashable]
+        let data = (postRaw["data"]! as! String)
+        let id = response["id"]! as! String
+    //recreates your saved wallet locally to call the hwallet.sign function
+        let mnemonic = self.savedSeed.components(separatedBy: " ")
+        let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
+        let hdWallet = HDWallet(seed: seed, network: .mainnet)
+        
+    //sign the data with ethereumkit hdwallet.sign
+        //NOTE: hdwallet.sign has 3 versions the hex string version is what's used below
+        print("SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN SIGN")
+     
+       if let signedTransaction = try? hdWallet.sign(hex: data, withPrivateKeyAtIndex: 0)
+       {
+        print("signed Transaction")
+        print(signedTransaction)
+        //Signed transaction is submitted to SIMBA API
+        //define parameters
+        let parameters: Parameters = [
+            "payload":String(signedTransaction)
+            ]
+        //define headers
+        let headers: HTTPHeaders = ["APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"]
+        //make the post request
+        Alamofire.request(("https://api.simbachain.com/v1/ioscardemo2/transaction/" + id + "/"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseString { response in
+            print("Success: \(response.result.isSuccess)")
+            print("Response String: \(String(describing: response.result.value))")
+        }
+        }
     }
 }
