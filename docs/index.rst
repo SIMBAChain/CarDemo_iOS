@@ -4,7 +4,7 @@
 ******************
 SIMBA CarDemo iOS
 ******************
-
+ 
 Installation
 ==============
 
@@ -18,10 +18,14 @@ Installation
 Using SIMBA Chain
 ==============
 
-`Here <https://www.youtube.com/watch?v=1BatYaRD60c&list=PLgfX2jfDfJNMEqF_xjZBYmavONXeRK_q5>`_ is a playlist on the SIMBA Chain channel to get you up to speed on using the dashboard
+`Here <https://www.youtube.com/watch?v=1BatYaRD60c&list=PLgfX2jfDfJNMEqF_xjZBYmavONXeRK_q5>`_ is a playlist on the SIMBA Chain Youtube channel to get you up to speed on using the dashboard.
 
-Here is the Smart Contract I used for my CarDemo
+.. _contract:
+Smart Contract
 ************
+
+Here is the smart contract I used for iOS
+
 .. code-block:: python
 
    contract Application {
@@ -47,5 +51,20 @@ Here is the Smart Contract I used for my CarDemo
         string _bundleHash
     )
     public {}
-}
+    }
+
+
+.. _dashboard:
+Creating an app on the SIMBA Dashboard
+***************
+Before Starting make sure you have an account on the Simba Dashboard and an Ethereum wallet with Ether in it on the Rinkeby testnet
+
+* Create The Smart Contract
+* Create The Application
+* Configure The Application
+* Generate API Key(This is not the API name)
+
+Converting the Cardemo example to your app
+***************
+
 
