@@ -61,10 +61,18 @@ Before Starting make sure you have an account on the Simba Dashboard and an Ethe
 
 * Create The Smart Contract
 * Create The Application
-* Configure The Application
+* Configure The Application(Ethereum Blockchain, Rinkeby Network,IPFS Filesystem, Permission disabled)
 * Generate API Key(This is not the API name)
-
+.. figure:: APIKey.png
+   :align:   center
 Converting the Cardemo example to your app
 ***************
+* Update URL
+   * Line 10 APIs.swift in swaggers
+   * Line 209 PostRegistrationViewController.swift
+   .. note:: The only part of the URL you need to change is "ioscardemo2" with whatever you chose for your app's API name(not the name of your apikey)
+* Update API Key
+   * Line 13 APIs.swift in swaggers
+   * Line 207 PostRegistrationViewController.swift
 
 
