@@ -69,10 +69,12 @@ Converting the Cardemo example to your app
 ***************
 * Update URL
    * Line 10 APIs.swift in swaggers
+   * Line 158 PostRegistrationViewController.swift
    * Line 209 PostRegistrationViewController.swift
    .. note:: The only part of the URL you need to change is "ioscardemo2" with whatever you chose for your app's API name(not the name of your apikey)
 * Update API Key
    * Line 13 APIs.swift in swaggers
+   * Line 160 PostRegistrationViewController.swift
    * Line 207 PostRegistrationViewController.swift
 
 
