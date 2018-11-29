@@ -9,7 +9,7 @@ import Foundation
 open class SwaggerClientAPI {
     public static var basePath = "https://api.simbachain.com/v1/ioscardemo2/"
     public static var credential: URLCredential?
-    //DO THE THING FOR THE AUTHORIZATION
+    //This is where you put your api key from simba
     public static var customHeaders: [String:String] = ["APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"]
     static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
 }
@@ -17,7 +17,7 @@ open class SwaggerClientAPI {
 open class APIBase {
     func toParameters(_ encodable: JSONEncodable?) -> [String: Any]? {
         let encoded: Any? = encodable?.encodeToJSON()
-
+        
         if encoded! is [Any] {
             var dictionary = [String:Any]()
             for (index, item) in (encoded as! [Any]).enumerated() {
@@ -40,40 +40,23 @@ open class RequestBuilder<T> {
     
     /// Optional block to obtain a reference to the request's progress instance when available.
     public var onProgressReady: ((Progress) -> ())?
-
+    
     required public init(method: String, URLString: String, parameters: [String:Any]?, isBody: Bool) {
         self.method = method
         self.URLString = URLString
         self.parameters = parameters
         self.isBody = isBody
-        print("APIS.swift")
-        print(self.method)
-        print(self.URLString)
-        print(self.parameters)
-        print(self.isBody)
-        if method == "POST"
-        {
-         let   postHeader: [String:String] = ["Content-Type":"multipart/form-data"]
-            addHeaders(postHeader)
-          
-        }
         addHeaders(SwaggerClientAPI.customHeaders)
-       // let postheader2: [String:String] = ["from":"0x4c01d2810e6E38947addFD6C5A086C2F62da296B", "VIN":"12345", "car":"0x000000", "Make":"amake", "Model":"amodel", "assetId":"0x000000"]
-        //addHeaders(postheader2)
     }
     
     open func addHeaders(_ aHeaders:[String:String]) {
         for (header, value) in aHeaders {
             headers[header] = value
-           print("Add Headers")
-            print(headers)
-            print(header)
-            print(value)
         }
     }
     
     open func execute(_ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) {print("execute in API.swift") }
-
+    
     public func addHeader(name: String, value: String) -> Self {
         if !value.isEmpty {
             headers[name] = value

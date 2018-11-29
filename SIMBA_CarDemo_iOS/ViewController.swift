@@ -24,14 +24,14 @@ class ViewController: UIViewController {
     @IBOutlet var balLabel: UILabel!
     @IBOutlet var addresslabel: UILabel!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-   
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-     
-}
-
+        
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         //checks to see if there is an address stored
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Wallet")
@@ -54,57 +54,57 @@ class ViewController: UIViewController {
         {
             //Please change the API key in the URL to your own if you plan to use the app past personal usage here https://etherscan.io/apis
             //It's free to make an account and API key but it is limited to 5 requests per second
-        Alamofire.request(("https://api-rinkeby.etherscan.io/api?module=account&action=balance&address=" + address.text! + "&tag=latest&apikey=8TZXFHXHCEBNSMQZDP64NKS8R4SDHVNWSF")).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = (response.result.value) {
-                print("JSON: \(json)") // serialized json response
-                let dict = json as! NSDictionary
-                let resultString = dict["result"] as! String
-                if let resultDouble = Double(resultString) {
-                    if resultDouble <= 0
-                    {
-                        //alerts the user to their lack of eth
-                        let alertVC = UIAlertController(
-                            title: "No Ethereum",
-                            message: "To Post or Get you need ETH" ,
-                            preferredStyle: .alert)
-                        let okAction = UIAlertAction(
-                            title: "OK",
-                            style:.default,
-                            handler: nil)
-                        alertVC.addAction(okAction)
-                        self.present(alertVC,animated: true,completion: nil)
-                        
-                        //hides the UI elements that needs to be hidden and returns
-                        self.ethBalance.text = "0"
-                        self.switchButton.isHidden = false
-                        self.getButton.isHidden = true
-                        self.postButton.isHidden = true
-                        self.createButton.isHidden = true
-                        self.importButton.isHidden = true
-                        self.notifLabel.isHidden = true
-                        self.address.isHidden = false
-                        self.addressLabel.isHidden = false
-                        self.getEth.isHidden = false
-                        self.balLabel.isHidden = false
-                        self.ethBalance.isHidden = false
-                        self.addressLabel.isHidden = false
-                        return
+            Alamofire.request(("https://api-rinkeby.etherscan.io/api?module=account&action=balance&address=" + address.text! + "&tag=latest&apikey=8TZXFHXHCEBNSMQZDP64NKS8R4SDHVNWSF")).responseJSON { response in
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                
+                if let json = (response.result.value) {
+                    print("JSON: \(json)") // serialized json response
+                    let dict = json as! NSDictionary
+                    let resultString = dict["result"] as! String
+                    if let resultDouble = Double(resultString) {
+                        if resultDouble <= 0
+                        {
+                            //alerts the user to their lack of eth
+                            let alertVC = UIAlertController(
+                                title: "No Ethereum",
+                                message: "To Post or Get you need ETH" ,
+                                preferredStyle: .alert)
+                            let okAction = UIAlertAction(
+                                title: "OK",
+                                style:.default,
+                                handler: nil)
+                            alertVC.addAction(okAction)
+                            self.present(alertVC,animated: true,completion: nil)
+                            
+                            //hides the UI elements that needs to be hidden and returns
+                            self.ethBalance.text = "0"
+                            self.switchButton.isHidden = false
+                            self.getButton.isHidden = true
+                            self.postButton.isHidden = true
+                            self.createButton.isHidden = true
+                            self.importButton.isHidden = true
+                            self.notifLabel.isHidden = true
+                            self.address.isHidden = false
+                            self.addressLabel.isHidden = false
+                            self.getEth.isHidden = false
+                            self.balLabel.isHidden = false
+                            self.ethBalance.isHidden = false
+                            self.addressLabel.isHidden = false
+                            return
+                        }
+                        self.ethBalance.text = String(resultDouble / 1000000000000000000) //The balance is returned as Wei which is 1/1000000000000000000 that is the purpose behind the division
                     }
-                    self.ethBalance.text = String(resultDouble / 1000000000000000000) //The balance is returned as Wei which is 1/1000000000000000000 that is the purpose behind the division
+                    
+                    
                 }
                 
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                }
                 
             }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-            
-        }
         }
         if address.text != ""
         {
@@ -140,8 +140,8 @@ class ViewController: UIViewController {
     
     @IBAction func SwitchAccount()
     {
-    createButton.isHidden = !createButton.isHidden
-    importButton.isHidden = !importButton.isHidden
+        createButton.isHidden = !createButton.isHidden
+        importButton.isHidden = !importButton.isHidden
         let alert = UIAlertController(title: "Switching wallets will remove the currently stored wallet", message: "note: your current wallet can be restored with your 12 words" , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true)

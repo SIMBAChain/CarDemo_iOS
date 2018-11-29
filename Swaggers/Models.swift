@@ -19,20 +19,20 @@ open class Response<T> {
     public let statusCode: Int
     public let header: [String: String]
     public let body: T?
-
+    
     public init(statusCode: Int, header: [String: String], body: T?) {
-        print("init (Models.swift)")
+        
         self.statusCode = statusCode
         self.header = header
         self.body = body
-    
+        
     }
-
+    
     public convenience init(response: HTTPURLResponse, body: T?) {
-        print("convenience init (Models.swift)")
+        
         let rawHeader = response.allHeaderFields
         var header = [String:String]()
-    
+        
         for (key, value) in rawHeader {
             header[key as! String] = value as? String
         }
@@ -43,18 +43,18 @@ open class Response<T> {
 private var once = Int()
 class Decoders {
     static fileprivate var decoders = Dictionary<String, ((AnyObject) -> AnyObject)>()
-
+    
     static func addDecoder<T>(clazz: T.Type, decoder: @escaping ((AnyObject) -> T)) {
         let key = "\(T.self)"
         decoders[key] = { decoder($0) as AnyObject }
     }
-
+    
     static func decode<T>(clazz: [T].Type, source: AnyObject) -> [T] {
-        print(source)
+        
         let array = [source]
-            return array.map { Decoders.decode(clazz: T.self, source: $0) }
+        return array.map { Decoders.decode(clazz: T.self, source: $0) }
     }
-
+    
     static func decode<T, Key: Hashable>(clazz: [Key:T].Type, source: AnyObject) -> [Key:T] {
         if type(of: source) == NSNull.self {return [:]}
         let sourceDictionary = source as! [Key: AnyObject]
@@ -64,7 +64,7 @@ class Decoders {
         }
         return dictionary
     }
-
+    
     static func decode<T>(clazz: T.Type, source: AnyObject) -> T {
         initialize()
         if T.self is Int32.Type && source is NSNumber {
@@ -82,15 +82,15 @@ class Decoders {
         if T.self is Data.Type && source is String {
             return Data(base64Encoded: source as! String) as! T
         }
-
+        
         let key = "\(T.self)"
         if let decoder = decoders[key] {
-           return decoder(source) as! T
+            return decoder(source) as! T
         } else {
             fatalError("Source \(source) is not convertible to type \(clazz): Maybe swagger file is insufficient")
         }
     }
-
+    
     static func decodeOptional<T>(clazz: T.Type, source: AnyObject?) -> T? {
         if source is NSNull {
             return nil
@@ -99,7 +99,7 @@ class Decoders {
             Decoders.decode(clazz: clazz, source: source)
         }
     }
-
+    
     static func decodeOptional<T>(clazz: [T].Type, source: AnyObject?) -> [T]? {
         if source is NSNull {
             return nil
@@ -108,7 +108,7 @@ class Decoders {
             Decoders.decode(clazz: clazz, source: someSource)
         }
     }
-
+    
     static func decodeOptional<T, Key: Hashable>(clazz: [Key:T].Type, source: AnyObject?) -> [Key:T]? {
         if source is NSNull {
             return nil
@@ -117,7 +117,7 @@ class Decoders {
             Decoders.decode(clazz: clazz, source: someSource)
         }
     }
-
+    
     private static var __once: () = {
         let formatters = [
             "yyyy-MM-dd",
@@ -125,14 +125,14 @@ class Decoders {
             "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ",
             "yyyy-MM-dd'T'HH:mm:ss'Z'",
             "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        ].map { (format: String) -> DateFormatter in
-            let formatter = DateFormatter()
-            formatter.dateFormat = format
-            return formatter
+            ].map { (format: String) -> DateFormatter in
+                let formatter = DateFormatter()
+                formatter.dateFormat = format
+                return formatter
         }
         // Decoder for Date
         Decoders.addDecoder(clazz: Date.self) { (source: AnyObject) -> Date in
-           if let sourceString = source as? String {
+            if let sourceString = source as? String {
                 for formatter in formatters {
                     if let date = formatter.date(from: sourceString) {
                         return date
@@ -145,103 +145,67 @@ class Decoders {
             }
             fatalError("formatter failed to parse \(source)")
         } 
-
+        
         // Decoder for [SIMBAData]
         
         Decoders.addDecoder(clazz: [GetRegModel].self) { (source: AnyObject) -> [GetRegModel] in
-            print("[GetRegModelDecoder]")
-           
+            
+            
             return Decoders.decode(clazz: [GetRegModel].self, source: source)
         }
         
         // Decoder for SIMBAData
         Decoders.addDecoder(clazz: GetRegModel.self) { (source: AnyObject) -> GetRegModel in
-             print("GetRegModelDecoder")
+            
             
             let sourceDictionary = source as! [AnyHashable: Any]
-         // print(sourceDictionary)
+            
             let instance = GetRegModel()
-            //-------------------------------------------------------
-            //--this is where the items are grabed from the backend--
-            //-------------------------------------------------------
             
             
-        
+            
+            
             var resultsarray: NSArray = sourceDictionary["results"] as! NSArray
             var results : [String : Any] = Decoders.decode(clazz: [String : Any].self, source: resultsarray.firstObject as AnyObject)
             if resultsarray.count == 0 {return instance}
             var payload = results["payload"] as? [String : AnyObject]
             var inputs = payload!["inputs"] as? [String : AnyObject]
             instance.results = (resultsarray  as! [NSDictionary])
-     
-            print("GetRegModelDecoder")
+            
+            
             return instance
         }
         
         // Decoder for [IMAGE]
         
         Decoders.addDecoder(clazz: [GetImageModel].self) { (source: AnyObject) -> [GetImageModel] in
-            print("[GetRegModelDecoder]")
+            
             
             return Decoders.decode(clazz: [GetImageModel].self, source: source)
         }
         
         // Decoder for IMAGE
         Decoders.addDecoder(clazz: GetImageModel.self) { (source: AnyObject) -> GetImageModel in
-            print("GetRegModelDecoder")
+            
             
             let sourceDictionary = source as! [AnyHashable: Any]
-            // print(sourceDictionary)
+            
             let instance = GetImageModel()
-            //-------------------------------------------------------
-            //--this is where the items are grabed from the backend--
-            //-------------------------------------------------------
             
             
             
-     
+            
+            
             instance.bundle_hash = (sourceDictionary["bundle_hash"] as! String)
             instance.manifest = (sourceDictionary["manifest"] as! Array<Any>)
-   
-            print("GetRegModelDecoder")
-            return instance
-        }
-       
-        // Decoder for [Post]
-        
-      /*  Decoders.addDecoder(clazz: [PostRegModel].self) { (source: AnyObject) -> [PostRegModel] in
-            print("[PostRegModelDecoder]")
-            print(source)
-            return Decoders.decode(clazz: [PostRegModel].self, source: source)
-        }
-        
-        // Decoder for Post
-        Decoders.addDecoder(clazz: PostRegModel.self) { (source: AnyObject) -> PostRegModel in
-            print("PostRegModelDecoder")
             
-            let sourceDictionary = source as! [AnyHashable: Any]
-            // print(sourceDictionary)
-            let instance = PostRegModel()
-            //-------------------------------------------------------
-            //--this is where the items are grabed from the backend--
-            //-------------------------------------------------------
-            let payload = sourceDictionary["payload"] as! NSDictionary
-            let inputs = payload["inputs"] as! NSDictionary
-            let raw = payload["raw"] as! NSDictionary
-            instance.make = (inputs["Make"] as! String)
-            instance.model = (inputs["Model"] as! String)
-            instance.vin = (inputs["VIN"] as! String)
-            instance.from = (raw["from"] as! String)
-            instance.car = (inputs["car"] as! String)
-            instance.assetId = inputs["assetId"]
-           // instance.apiKey = "ec74fd770e3ef3d5be469bdb11db840ec4898cbd756cb65583a8f403ca71d91f"
-            print("GetRegModelDecoder")
+            
             return instance
         }
-        */
+        
         
     }()
-
+    
     static fileprivate func initialize() {
         _ = Decoders.__once
     }

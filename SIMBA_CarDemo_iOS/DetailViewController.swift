@@ -11,6 +11,7 @@ import UIKit
 
 class DetailViewController: UIViewController
 {
+    //this is the view for viewing the details of a transaction such as the car photo
     //Outlets
     @IBOutlet  var make: UITextField!
     @IBOutlet  var model: UITextField!
@@ -37,17 +38,19 @@ class DetailViewController: UIViewController
         print(dict)
         let currentPayload = dict["payload"] as! NSDictionary
         let currentInputs = currentPayload["inputs"] as! NSDictionary
-         self.currentRaw = currentPayload["raw"] as! NSDictionary
+        self.currentRaw = currentPayload["raw"] as! NSDictionary
         make.text = (currentInputs["Make"] as! String)
         model.text = (currentInputs["Model"] as! String)
         vin.text = (currentInputs["VIN"] as! String)
         //getting the image
         let id = dict["id"] as! String
+        //gets the image based off the txn_id
         DefaultAPI.getSIMBADataImage(txn_id: id) { (GetRegModel, error) in
             
-          
+            
             if GetRegModel != nil
             {
+                //displays all the image variables
                 self.ipfs.text = GetRegModel?.first?.bundle_hash
                 
                 let manifest = GetRegModel?.first?.manifest
@@ -62,15 +65,16 @@ class DetailViewController: UIViewController
             }
             
         }
-      
         
-      
+        
+        
         
         
     }
-
+    
     @IBAction func TranInfo()
     {
+        //puts all of the extra transaction info into an alert and displays it
         let alertMessage = "Transaction Hash:" + String(currentRaw["data"] as! String) + "\nTransaction From:" + String(currentRaw["from"] as! String)
         let alertMessage2 = "\nTransaction To:" + String(currentRaw["to"] as! String) + "\nTransaction Status:" + String(dict["status"] as! String) + "\nGas Used:" + String(currentRaw["gas"] as! Double)
         let alertVC = UIAlertController(
@@ -88,7 +92,7 @@ class DetailViewController: UIViewController
             completion: nil)
     }
     
-
     
-
+    
+    
 }

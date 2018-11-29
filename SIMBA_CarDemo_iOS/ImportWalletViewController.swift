@@ -11,6 +11,7 @@ import UIKit
 import EthereumKit
 import CoreData
 class ImportWalletViewController: UIViewController {
+    //this is the view where you can import your own wallet
     @IBOutlet var inSeed: UITextField!
     @IBOutlet var outSeed: UITextField!
     @IBOutlet var outAddress: UITextField!
@@ -24,7 +25,7 @@ class ImportWalletViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-
+    
     
     
     

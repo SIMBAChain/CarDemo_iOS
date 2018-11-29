@@ -15,20 +15,15 @@ open class DefaultAPI: APIBase {
      */
     //GET DATA
     open class func getSIMBAData(completion: @escaping ((_ data: [GetRegModel]?,_ statusCode: Int?) -> Void)) {
-        print("getSIMBAData")
         getSIMBADataWithRequestBuilder().execute { (response, error) -> Void in
-            print("getSIMBADataWithRequestBuilderCALLED")
-            // completion(response?.body, error);
+            
             completion(response?.body, response?.statusCode)
-            print(response?.statusCode)
-           //  let statusCodeSTR = String(response!.statusCode)
-            // print("GET DATA API CODE: " + statusCodeSTR)
+            
         }
     }
     
     //GET DATA WITH REQUEST BUILDER
     open class func getSIMBADataWithRequestBuilder() -> RequestBuilder<[GetRegModel]> {
-        print("getSIMBADataWithRequestBuilderEXECUTED")
         let path = "registerCar"
         let URLString = SwaggerClientAPI.basePath + path
         
@@ -45,21 +40,18 @@ open class DefaultAPI: APIBase {
     //-----------------------------------------------------------------------------------------------------------------------------------------
     //GET FILTERED DATA
     open class func getFilteredSIMBAData(filter:String, completion: @escaping ((_ data: [GetRegModel]?,_ statusCode: Int?) -> Void)) {
-        print("getSIMBAData")
+        
         getFilteredSIMBADataWithRequestBuilder(filter: filter).execute { (response, error) -> Void in
-            print("getSIMBADataWithRequestBuilderCALLED")
-            // completion(response?.body, error);
+            
             completion(response?.body, response?.statusCode)
-          //  print(response?.statusCode)
-            //  let statusCodeSTR = String(response!.statusCode)
-            // print("GET DATA API CODE: " + statusCodeSTR)
         }
     }
-
+    
     //GET FILTERED DATA WITH REQEUST BUILDER
     open class func getFilteredSIMBADataWithRequestBuilder(filter:String) -> RequestBuilder<[GetRegModel]> {
-        print("getSIMBADataWithRequestBuilderEXECUTED")
+        
         let path = "registerCar?Make_contains=" + filter
+        
         let URLString = SwaggerClientAPI.basePath + path
         
         let nillableParameters: [String:Any?] = [:]
@@ -75,21 +67,18 @@ open class DefaultAPI: APIBase {
     //+-----------------------------------------------------------------------------------------------------------------+
     //GET IMAGE DATA
     open class func getSIMBADataImage(txn_id:String, completion: @escaping ((_ data: [GetImageModel]?,_ statusCode: Int?) -> Void)) {
-        print("getSIMBAData")
+        
         getSIMBADataImageWithRequestBuilder(txn_id: txn_id).execute { (response, error) -> Void in
-            print("getSIMBADataWithRequestBuilderCALLED")
-            // completion(response?.body, error);
+            
             completion(response?.body, response?.statusCode)
-            //  print(response?.statusCode)
-            //  let statusCodeSTR = String(response!.statusCode)
-            // print("GET DATA API CODE: " + statusCodeSTR)
         }
     }
     
     //GET IMAGE DATA WITH REQEUST BUILDER
     open class func getSIMBADataImageWithRequestBuilder(txn_id:String) -> RequestBuilder<[GetImageModel]> {
-        print("getSIMBADataWithRequestBuilderEXECUTED")
+        
         let path = "transaction/" + txn_id + "/bundle/"
+        
         let URLString = SwaggerClientAPI.basePath + path
         
         let nillableParameters: [String:Any?] = [:]
@@ -106,33 +95,25 @@ open class DefaultAPI: APIBase {
     //+-------------------------------------------------POST DATA-------------------------------------------------------+
     //+-----------------------------------------------------------------------------------------------------------------+
     open class func postSIMBAData(payload: PostRegModel!, completion: @escaping ((_ error: Error?) -> Void)) {
-     
+        
         postSIMBADataWithRequestBuilder(payload: payload).execute { (response, error) -> Void in
             completion(error);
-            print("StatusCode defaultAPI")
-            print(response?.statusCode)
-            print(response?.body)
-            //print(response.)
-           // print(response)
-            
-            print("Error defaultAPI")
-            print(error)
         }
     }
     
     //POSTING IS NOT DONE HERE IT IS DONE THROUGH ALAMOFIRE IN THE POST VIEW
     
     open class func postSIMBADataWithRequestBuilder(payload: PostRegModel) -> RequestBuilder<Void> {
-      
+        
         let path = "registerCar"//change to audit when ready to test POSTs
         let URLString = SwaggerClientAPI.basePath + path
-       
-       // let parameters = payload.encodeToJSON() as? [String:AnyObject]
+        
+        
         let parameters = payload.encodeToJSON() as? [String:AnyObject]
         let convertedParameters = APIHelper.convertBoolToString(parameters)
-     
+        
         let requestBuilder: RequestBuilder<Void>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-       //     let requestBuilder: RequestBuilder<[PostRegModel]>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        
         return requestBuilder.init(method: "POST", URLString: URLString, parameters: convertedParameters, isBody: false)
     }
     

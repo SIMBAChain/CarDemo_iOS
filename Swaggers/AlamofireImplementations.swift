@@ -17,10 +17,10 @@ private var managerStore: [String: Alamofire.SessionManager] = [:]
 
 open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
     required public init(method: String, URLString: String, parameters: [String : Any]?, isBody: Bool) {
-        print("alamo fire implementations")
+        
         super.init(method: method, URLString: URLString, parameters: parameters, isBody: isBody)
     }
-
+    
     /**
      May be overridden by a subclass if you want to control the session
      configuration.
@@ -30,43 +30,36 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         configuration.httpAdditionalHeaders = buildHeaders()
         return Alamofire.SessionManager(configuration: configuration)
     }
-
+    
     override open func execute(_ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) {
         let managerId:String = UUID().uuidString
         // Create a new manager for each request to customize its request header
         let manager = createSessionManager()
         managerStore[managerId] = manager
-
+        
         let encoding:ParameterEncoding = isBody ? JSONEncoding() : URLEncoding()
-        print("Encoding AlamofireImplementations")
-        print(encoding)
+        
         let xMethod = Alamofire.HTTPMethod(rawValue: method)
         let fileKeys = parameters == nil ? [] : parameters!.filter { $1 is NSURL }
-                                                           .map { $0.0 }
-        
-      
-        print("File Key")
-        print(fileKeys)
-        print("parameters in alamofire implementations")
-        print(parameters)
+            .map { $0.0 }
         
         if fileKeys.count > 0 {
-       // if method == "POST" {
-            print("getting ready 4 form data")
+            
+            
             manager.upload(multipartFormData: { mpForm in
                 for (k, v) in self.parameters! {
                     switch v {
                     case let fileURL as URL:
-                        print("URL")
+                        
                         mpForm.append(fileURL, withName: k)
                         break
                     case let string as String:
-                         print("string")
-                         
+                        
+                        
                         mpForm.append(string.data(using: String.Encoding.utf8)!, withName: k)
                         break
                     case let number as NSNumber:
-                        print("NSNUMBER")
+                        
                         mpForm.append(number.stringValue.data(using: String.Encoding.utf8)!, withName: k)
                         break
                     default:
@@ -74,55 +67,50 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                         break
                     }
                 }
-                }, to: URLString, method: xMethod!, headers: self.headers, encodingCompletion: { encodingResult in
+            }, to: URLString, method: xMethod!, headers: self.headers, encodingCompletion: { encodingResult in
                 switch encodingResult {
-                
+                    
                 case .success(let upload, _, _):
                     if let onProgressReady = self.onProgressReady {
-                     print("on progress ready")
+                        
                         onProgressReady(upload.progress)
                     }
-                   print("success")
-                   print(request)
-                   print(upload)
                     
-                   self.processRequest(request: upload, managerId, completion)
+                    
+                    self.processRequest(request: upload, managerId, completion)
                 case .failure(let encodingError):
                     completion(nil, ErrorResponse.Error(415, nil, encodingError))
                 }
             })
             
         } else {
-           
+            
             let request = manager.request(URLString, method: xMethod!, parameters: parameters, encoding: encoding)
-            print("else else else")
-            print(request)
-            print(parameters)
             if let onProgressReady = self.onProgressReady {
                 onProgressReady(request.progress)
             }
             processRequest(request: request, managerId, completion)
         }
-
+        
     }
-
+    
     private func processRequest(request: DataRequest, _ managerId: String, _ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) {
-        print("processRequest")
+        
         if let credential = self.credential {
             request.authenticate(usingCredential: credential)
         }
-
+        
         let cleanupRequest = {
             _ = managerStore.removeValue(forKey: managerId)
         }
-
+        
         let validatedRequest = request.validate()
-
+        
         switch T.self {
         case is String.Type:
             validatedRequest.responseString(completionHandler: { (stringResponse) in
                 cleanupRequest()
-                print("string.type")
+                
                 if stringResponse.result.isFailure {
                     completion(
                         nil,
@@ -130,7 +118,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                     )
                     return
                 }
-
+                
                 completion(
                     Response(
                         response: stringResponse.response!,
@@ -142,7 +130,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         case is Void.Type:
             validatedRequest.responseData(completionHandler: { (voidResponse) in
                 cleanupRequest()
-                print("Void.type")
+                
                 if voidResponse.result.isFailure {
                     completion(
                         nil,
@@ -150,7 +138,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                     )
                     return
                 }
-
+                
                 completion(
                     Response(
                         response: voidResponse.response!,
@@ -161,7 +149,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         case is Data.Type:
             validatedRequest.responseData(completionHandler: { (dataResponse) in
                 cleanupRequest()
-                     print("Data.type")
+                
                 if (dataResponse.result.isFailure) {
                     completion(
                         nil,
@@ -169,7 +157,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                     )
                     return
                 }
-
+                
                 completion(
                     Response(
                         response: dataResponse.response!,
@@ -181,12 +169,12 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         default:
             validatedRequest.responseJSON(options: .allowFragments) { response in
                 cleanupRequest()
-                 print("default")
+                
                 if response.result.isFailure {
                     completion(nil, ErrorResponse.Error(response.response?.statusCode ?? 500, response.data, response.result.error!))
                     return
                 }
-
+                
                 if () is T {
                     completion(Response(response: response.response!, body: (() as! T)), nil)
                     return
@@ -201,19 +189,17 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                     completion(Response(response: response.response!, body: ("" as! T)), nil)
                     return
                 }
-
+                
                 completion(nil, ErrorResponse.Error(500, nil, NSError(domain: "localhost", code: 500, userInfo: ["reason": "unreacheable code"])))
             }
         }
     }
-
+    
     private func buildHeaders() -> [String: String] {
         var httpHeaders = SessionManager.defaultHTTPHeaders
         for (key, value) in self.headers {
             httpHeaders[key] = value
         }
-        print("httpHeaders(alamofire implementations 220)")
-        print(httpHeaders)
         return httpHeaders
     }
 }

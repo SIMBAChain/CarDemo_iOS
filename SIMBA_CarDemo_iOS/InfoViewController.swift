@@ -11,6 +11,8 @@ import UIKit
 import CoreData
 class InfoViewController: UIViewController
 {
+    //This is just the info view nothing special goes on here mostly just links
+    
     @IBOutlet var password: UITextField!
     @IBOutlet var address: UITextField!
     @IBOutlet var privateKey: UITextField!

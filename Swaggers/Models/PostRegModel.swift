@@ -9,7 +9,7 @@
 import Foundation
 
 open class PostRegModel: JSONEncodable {
-
+//none of this is really needed since posting is done straight through alamofire not swagger
     
     public var assetId: Any?
    
