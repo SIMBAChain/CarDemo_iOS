@@ -18,7 +18,7 @@
 		1AD1D65120B7F009007AFF80 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1D65020B7F009007AFF80 /* Crypto.swift */; };
 		1AD1D65220B7F07F007AFF80 /* Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AD1D63620B7E95A007AFF80 /* Internal.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1AD1D65420B7F112007AFF80 /* EllipticCurveEncrypterSecp256k1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1D65320B7F112007AFF80 /* EllipticCurveEncrypterSecp256k1.swift */; };
-		1AD1D65620B7F252007AFF80 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD1D65520B7F252007AFF80 /* CryptoSwift.framework */; };
+		C97E832621B064D400D311E7 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97E832521B064D400D311E7 /* CryptoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,7 @@
 		1AD1D65020B7F009007AFF80 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		1AD1D65320B7F112007AFF80 /* EllipticCurveEncrypterSecp256k1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipticCurveEncrypterSecp256k1.swift; sourceTree = "<group>"; };
 		1AD1D65520B7F252007AFF80 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = SOURCE_ROOT; };
+		C97E832521B064D400D311E7 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AD1D65620B7F252007AFF80 /* CryptoSwift.framework in Frameworks */,
+				C97E832621B064D400D311E7 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +87,7 @@
 				1AD1D62820B7E822007AFF80 /* CryptoEthereumSwiftTests */,
 				1AD1D63F20B7EF2F007AFF80 /* Example */,
 				1AD1D61C20B7E822007AFF80 /* Products */,
+				C97E832421B064D400D311E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +151,14 @@
 				1AD1D61F20B7E822007AFF80 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		C97E832421B064D400D311E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C97E832521B064D400D311E7 /* CryptoSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
