@@ -14,7 +14,7 @@ Installation
 * Hit the "Open Xcode" button on the popup.
 * Choose where you want to save the project and hit clone.
 * Xcode should open the project.
-
+.. alert:: If the app shows errors give it a minute and try building or running the app a few times
 Using SIMBA Chain
 ==============
 
