@@ -200,10 +200,27 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
         //define headers
         let headers: HTTPHeaders = ["APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"]
         //make the post request
-        Alamofire.request(("https://api.simbachain.com/v1/ioscardemo2/transaction/" + id + "/"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseString { response in
-            print("Success: \(response.result.isSuccess)")
-            print("Response String: \(String(describing: response.result.value))")
+        Alamofire.request(("https://api.simbachain.com/v1/ioscardemo2/transaction/" + id + "/"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")
+            //alerts the user that their transaction has been posted and signed
+            response.result.ifSuccess
+            {
+            let alertVC = UIAlertController(
+                title: "Posted",
+                message: "Your transaction has been signed and posted" ,
+                preferredStyle: .alert)
+            let okAction = UIAlertAction(
+                title: "OK",
+                style:.default,
+                handler: nil)
+            alertVC.addAction(okAction)
+            self.present(alertVC,animated: true,completion: nil)
+        }
         }
         }
     }
+    
+
 }
