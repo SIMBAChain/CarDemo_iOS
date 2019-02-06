@@ -4,7 +4,7 @@
 ******************
 SIMBA CarDemo iOS
 ******************
- 
+ .. note:: HDwallets are not setup to be encrypted when stored locally. This should be addressed for any usage apart from demo purposes.
 Installation
 ==============
 
@@ -18,7 +18,6 @@ Installation
  .. note:: If the app shows errors give it a minute and try building or running the app a few times
 Using SIMBA Chain
 
-   .. note:: HDwallets are not setup to be encrypted when stored locally. This should be addressed for any usage apart from demo purposes.
 
 ==============
 
