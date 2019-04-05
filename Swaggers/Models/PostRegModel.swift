@@ -36,7 +36,7 @@ open class PostRegModel: JSONEncodable {
         
         print("body")
         let string1 = String(data: body as Data, encoding: String.Encoding.utf8)
-        print(string1)
+  
         print(body)
         nillableDictionary["from"] = self.from
         nillableDictionary["VIN"] = self.vin

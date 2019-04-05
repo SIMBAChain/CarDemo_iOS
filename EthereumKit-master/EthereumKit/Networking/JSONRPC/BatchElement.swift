@@ -11,7 +11,7 @@ protocol BatchElementType {
 }
 
 internal extension BatchElementType {
-    internal func response(from object: Any) throws -> Request.Response {
+    func response(from object: Any) throws -> Request.Response {
         switch result(from: object) {
         case .success(let response):
             return response
@@ -21,7 +21,7 @@ internal extension BatchElementType {
         }
     }
     
-    internal func result(from object: Any) -> Result<Request.Response> {
+    func result(from object: Any) -> Result<Request.Response> {
         guard let dictionary = object as? [String: Any] else {
             return .failure(EthereumKitError.responseError(.jsonrpcError(.unexpectedTypeObject(object))))
         }
@@ -57,11 +57,11 @@ internal extension BatchElementType {
 }
 
 internal extension BatchElementType where Request.Response == Void {
-    internal func response(_ object: Any) throws -> Request.Response {
+    func response(_ object: Any) throws -> Request.Response {
         return ()
     }
     
-    internal func result(_ object: Any) -> Result<Request.Response> {
+    func result(_ object: Any) -> Result<Request.Response> {
         return .success(())
     }
 }
