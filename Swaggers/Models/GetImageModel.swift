@@ -17,6 +17,9 @@ open class GetImageModel: JSONEncodable {
     public var encoding: String?
      public var data: String?
 
+    
+    
+    
     public init() {}
     
     // MARK: JSONEncodable

@@ -179,8 +179,22 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
         
         
     }
+    
+    
+    
+    
+    public func calculateRSV(signature: Data) -> (r: BInt, s: BInt, v: BInt) {
+         return (
+            r: BInt(signature[..<32].toHexString(), radix: 16)!,
+            s: BInt(signature[32..<64].toHexString(), radix: 16)!,
+             v: BInt(signature[64]) + (1 == 0 ? 27 : (35 + 2 * 1))
+         )
+     }
+    
+    
     func SignTransaction(response:NSDictionary)
     {
+        
         //gets the data needed from the model and sets it to the "data" variable
         let postpayload = response["payload"] as! [String : AnyHashable]
         let postRaw = postpayload["raw"] as! [String : AnyHashable]
@@ -190,42 +204,140 @@ class PostRegistrationViewController: UIViewController,UIImagePickerControllerDe
         let mnemonic = self.savedSeed.components(separatedBy: " ")
         let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
         let hdWallet = HDWallet(seed: seed, network: .mainnet)
+        print("WORD LIST")
+        print(mnemonic)
+        print("SEED")
+        print(seed)
+        
+        print("WALLET")
+        print(hdWallet)
+        
+        
+        print(postRaw)
+        
+        
+        // Int(_, radix: ) can't deal with the '0x' prefix. NSScanner can handle hex
+        // with or without the '0x' prefix
+        
+        let nonceScanner = Scanner(string: postRaw["nonce"] as! String)
+        var value: UInt64 = 0
+
+        if nonceScanner.scanHexInt64(&value) {
+            print("Decimal: \(value)")
+            print("Hex: 0x\(String(value, radix: 16))")
+        }
+        
+        
+        let nonce = value
+      
+
+       
+        let gasPriceScanner = Scanner(string: postRaw["gasPrice"] as! String)
+         value = 0
+
+        if gasPriceScanner.scanHexInt64(&value) {
+            print("Decimal: \(value)")
+            print("Hex: 0x\(String(value, radix: 16))")
+        }
+        let gasPrice = value
+        value = 0
+        
+        let gasLimitScanner = Scanner(string: postRaw["gasLimit"] as! String)
+        if gasLimitScanner.scanHexInt64(&value) {
+            print("Decimal: \(value)")
+            print("Hex: 0x\(String(value, radix: 16))")
+        }
+
+        let gasLimit = value
+        value = 0
+        let to = postRaw["to"] as! String
+     //   let value = 0
+        let dataPar = (postRaw["data"] as! String).data(using: .utf8)!
+        
+        
+        print("----")
+        print(nonce)
+        print(gasPrice)
+        print(gasLimit)
+        print(to)
+        print(value)
+        print(dataPar.hashValue)
+        print("----")
         
         //sign the data with ethereumkit hdwallet.sign
         //NOTE: hdwallet.sign has 3 versions the hex string version is what's used below
         print("SIGNING")
-        if let signedTransaction = try? hdWallet.sign(hex: data, withPrivateKeyAtIndex: 0)
-        {
-            print("signed Transaction")
-            print(signedTransaction)
-            //Signed transaction is submitted to SIMBA API
-            //define parameters
-            let parameters: Parameters = [
-                "payload":String(signedTransaction)
-            ]
-            //define headers
-            let headers: HTTPHeaders = ["APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"]
-            //make the post request
-            Alamofire.request(("https://api.simbachain.com/v1/ioscardemo2/transaction/" + id + "/"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                print("Request: \(String(describing: response.request))")   // original url request
-                print("Response: \(String(describing: response.response))") // http url response
-                print("Result: \(response.result)")
-                //alerts the user that their transaction has been posted and signed
-                response.result.ifSuccess
-                    {
-                        let alertVC = UIAlertController(
-                            title: "Posted",
-                            message: "Your transaction has been signed and posted" ,
-                            preferredStyle: .alert)
-                        let okAction = UIAlertAction(
-                            title: "OK",
-                            style:.default,
-                            handler: nil)
-                        alertVC.addAction(okAction)
-                        self.present(alertVC,animated: true,completion: nil)
-                }
+        print("unsigned data")
+        print(data)
+       
+        
+        let dataStr = postRaw["data"] as! String
+       /* guard dataStr.count.isMultiple(of: 2) else {
+                   return nil
+               }*/
+               
+       
+        
+        
+              let chars = dataStr.map { $0 }
+               let bytes = stride(from: 0, to: chars.count, by: 2)
+                   .map { String(chars[$0]) + String(chars[$0 + 1]) }
+                   .compactMap { UInt8($0, radix: 16) }
+               
+        let dataBytes = Data(bytes)
+        
+
+        let parsedRaw = RawTransaction(wei: "0", to: to, gasPrice: Int(gasPrice), gasLimit:  Int(gasLimit), nonce: Int(nonce), data: dataBytes)
+        
+        let signer = EIP155Signer(chainID: 0)
+       if let rawData = try? signer.sign(parsedRaw, privateKey: hdWallet.privateKey(at: 0))
+       {
+      
+               let hash = rawData.toHexString().addHexPrefix()
+        
+        
+        
+        
+        
+        //Signed transaction is submitted to SIMBA API
+        //define parameters
+        let parameters: Parameters = [
+            "payload":String(hash)
+        ]
+        //define headers
+        let headers: HTTPHeaders = ["APIKEY":"0ce2c6f644fa15bfb25520394392af4f835153a6be1beff0c096988d647a97c4"]
+        //make the post request
+        Alamofire.request(("https://api.simbachain.com/v1/ioscardemo2/transaction/" + id + "/"), method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")
+            //alerts the user that their transaction has been posted and signed
+            response.result.ifSuccess
+                {
+                
+                    let alertVC = UIAlertController(
+                        title: "Posted",
+                        message: "Your transaction has been signed and posted" ,
+                        preferredStyle: .alert)
+                    let okAction = UIAlertAction(
+                        title: "OK",
+                        style:.default,
+                        handler: nil)
+                    alertVC.addAction(okAction)
+                    self.present(alertVC,animated: true,completion: nil)
             }
         }
+        
+        
+       }
+        
+        if let signedRaw = try? hdWallet.sign(rawTransaction: parsedRaw, withPrivateKeyAtIndex: 0)
+        {
+            print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            print(signedRaw)
+            print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        }
+     
     }
     
     
